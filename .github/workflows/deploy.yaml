@@ -23,6 +23,7 @@ jobs:
             git clone "${{ github.server_url }}/${{ github.repository }}.git"
             cd agora-frontend
             git checkout project-setup
+            sed -i "s@BASE_URL: 'http://[a-zA-Z:.0-9]\+'@BASE_URL: 'http://${{ secrets.SSH_SERVER_HOSTNAME }}'@g" src/scripts/common.js
             npm install
             cd ..
             pm2 start agora-frontend/src/server.js --name=agora-frontend
