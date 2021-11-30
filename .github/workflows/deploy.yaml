@@ -1,0 +1,28 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy agora frontend
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: "${{ secrets.SSH_SERVER_HOSTNAME }}"
+          username: "${{ secrets.SSH_SERVER_USERNAME }}"
+          password: "${{ secrets.SSH_SERVER_PASSWORD }}"
+          proxy_host: "${{ secrets.SSH_PROXY_HOSTNAME }}"
+          proxy_username: "${{ secrets.SSH_PROXY_USERNAME }}"
+          proxy_password: "${{ secrets.SSH_PROXY_PASSWORD }}"
+          debug: true
+          script: |
+            cd ~
+            pm2 stop agora-frontend
+            rm -rf agora-frontend
+            git clone "${{ github.server_url }}/${{ github.repository }}.git"
+            cd agora-frontend
+            sed -i "s@BASE_URL: 'http://[a-zA-Z:.0-9]\+'@BASE_URL: 'http://${{ secrets.SSH_SERVER_HOSTNAME }}'@g" src/scripts/common.js
+            npm install
+            cd ..
+            pm2 start agora-frontend/src/server.js --name=agora-frontend
