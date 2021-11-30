@@ -1,5 +1,6 @@
 // Import dependencies
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 
 // Create express app
@@ -10,6 +11,10 @@ const port = 3000;
 
 // Set up static middleware
 app.use(express.static(path.join(__dirname, '')));
+
+// Enable CORS and pre-flight checks for all routes
+app.use(cors());
+app.options('*', cors());
 
 // Home page
 app.get('/', (req, res) => {
