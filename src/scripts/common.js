@@ -30,3 +30,67 @@ const api = {
   // Make a HTTP DELETE rquest
   delete: async (path, body) => api._executeApiRequest('delete', path, body),
 };
+
+// Random post generator utility
+const generateRandomPost = () => {
+  const hasTextContent = Math.random() < 0.7;
+  const hasFileContent = Math.random() < 0.5 || !hasTextContent;
+  return {
+    id: faker.random.uuid(),
+    filename: hasFileContent ? `https://picsum.photos/seed/${faker.random.uuid()}/500/400` : null,
+    content: hasTextContent ? faker.lorem.sentences() : null,
+    createdAt: faker.date.recent(),
+    updatedAt: faker.date.recent(),
+    owner: {
+      id: faker.random.uuid(),
+      username: faker.internet.userName(),
+      filename: `https://picsum.photos/seed/${faker.random.uuid()}/200/300`,
+    },
+    upvotes: Math.round(Math.random() * 50),
+    downvotes: Math.round(Math.random() * 10),
+    comments: Math.round(Math.random() * 20),
+  };
+};
+
+// ElementHelper utility class
+class ElementHelper {
+  htmlElement;
+
+  constructor(tagName) {
+    this.htmlElement = document.createElement(tagName);
+  }
+
+  setId(id) {
+    this.htmlElement.id = id;
+    return this;
+  }
+
+  setClass(className) {
+    this.htmlElement.className = className;
+    return this;
+  }
+
+  setOnClick(onClick) {
+    this.htmlElement.onClick = onClick;
+    return this;
+  }
+
+  setSrc(src) {
+    this.htmlElement.src = src;
+    return this;
+  }
+
+  setText(textContent) {
+    this.htmlElement.textContent = textContent;
+    return this;
+  }
+
+  setParent(parent) {
+    parent.htmlElement.appendChild(this.htmlElement);
+    return this;
+  }
+
+  static create(tagName) {
+    return new ElementHelper(tagName);
+  }
+}

@@ -1,15 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+header {}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 16px;
+  letter-spacing: 1px;
+  color: #656565;
+}
+
+main {
+  flex: 1;
   background-color: #eeeeee;
 }
 
-.header {
-  width: 100vw;
-  background-color: #eeeeee;
+.post-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  background-color: #fefefe;
+  padding: 12px 18px;
+}
+
+.post-header {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-header-profile {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+.post-header-profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.post-header-username {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 12px;
+}
+
+.post-header-timestamp {
+  font-size: 14px;
+  color: #cccccc;
+  margin-left: auto;
+}
+
+.post-content {
+  padding: 12px 0;
+}
+
+.post-content p {
+  font-size: 14px;
+}
+
+.post-content-single {
+  display: flex;
+  justify-content: center;
+}
+
+.post-content-single img {
+  max-width: 100%;
+  justify-self: center;
+}
+
+.post-content-split img {
+  float: right;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  object-position: top right;
+  padding: 0 0 20px 20px;
+}
+
+.post-actions {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+}
+
+.post-actions .post-actions-item {
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 7px;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  margin-right: 8px;
+}
+
+.post-actions .post-actions-item p {
+  padding-left: 4px;
+  font-size: 14px;
+}
+
+.post-actions .post-actions-ban {
+  margin-left: auto;
+  margin-right: 0;
 }
