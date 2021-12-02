@@ -14,7 +14,7 @@ const createPostElementV3 = (post, isModerator = false) => {
     ElementHelper.create('img').setClass('icon').setSrc('../../assets/user.svg').setParent(profilePicture);
   }
   ElementHelper.create('div').setClass('post-header-username').setText(post.owner.username).setParent(header);
-  const formattedDate = new Intl.DateTimeFormat(navigator.language).format(post.createdAt);
+  const formattedDate = moment(post.createdAt).fromNow();
   ElementHelper.create('div').setClass('post-header-timestamp').setText(formattedDate).setParent(header);
 
   // Content
@@ -42,8 +42,8 @@ const createPostElementV3 = (post, isModerator = false) => {
   return container.htmlElement;
 };
 
-const posts = Array(10).fill(0).map(() => generateRandomPost());
+const posts = generateRandomPosts(30);
 const postsHolder = document.querySelector('.home-posts');
 posts.forEach(post => {
-  postsHolder.appendChild(createPostElementV3(post, false));
+  postsHolder.appendChild(createPostElementV3(post, true));
 });

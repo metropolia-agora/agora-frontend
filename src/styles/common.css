@@ -38,7 +38,7 @@ main {
 .post-container {
   display: flex;
   flex-direction: column;
-  margin-top: 8px;
+  margin-top: 12px;
   background-color: #fefefe;
   padding: 12px 18px;
 }

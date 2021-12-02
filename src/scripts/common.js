@@ -32,24 +32,26 @@ const api = {
 };
 
 // Random post generator utility
-const generateRandomPost = () => {
-  const hasTextContent = Math.random() < 0.7;
-  const hasFileContent = Math.random() < 0.5 || !hasTextContent;
-  return {
-    id: faker.random.uuid(),
-    filename: hasFileContent ? `https://picsum.photos/seed/${faker.random.uuid()}/500/400` : null,
-    content: hasTextContent ? faker.lorem.sentences() : null,
-    createdAt: faker.date.recent(),
-    updatedAt: faker.date.recent(),
-    owner: {
+const generateRandomPosts = (amount) => {
+  return Array(amount).fill(0).map(() => {
+    const hasTextContent = Math.random() < 0.7;
+    const hasFileContent = Math.random() < 0.5 || !hasTextContent;
+    return {
       id: faker.random.uuid(),
-      username: faker.internet.userName(),
-      filename: `https://picsum.photos/seed/${faker.random.uuid()}/200/300`,
-    },
-    upvotes: Math.round(Math.random() * 50),
-    downvotes: Math.round(Math.random() * 10),
-    comments: Math.round(Math.random() * 20),
-  };
+      filename: hasFileContent ? `https://picsum.photos/seed/${faker.random.uuid()}/500/400` : null,
+      content: hasTextContent ? faker.lorem.sentences() : null,
+      createdAt: faker.date.recent(),
+      updatedAt: faker.date.recent(),
+      owner: {
+        id: faker.random.uuid(),
+        username: faker.internet.userName(),
+        filename: `https://picsum.photos/seed/${faker.random.uuid()}/200/300`,
+      },
+      upvotes: Math.round(Math.random() * 50),
+      downvotes: Math.round(Math.random() * 10),
+      comments: Math.round(Math.random() * 20),
+    };
+  });
 };
 
 // ElementHelper utility class
