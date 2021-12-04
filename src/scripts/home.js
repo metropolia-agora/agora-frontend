@@ -8,12 +8,12 @@ const createPostElement = (post, isModerator = false) => {
   // Header
   const header = ElementHelper.create('div').setClass('post-header').setParent(container);
   const profilePicture = ElementHelper.create('div').setClass('post-header-profile').setParent(header);
-  if (post.owner.filename) {
-    ElementHelper.create('img').setSrc(post.owner.filename).setParent(profilePicture);
+  if (post.ownerFilename) {
+    ElementHelper.create('img').setSrc(post.ownerFilename).setParent(profilePicture);
   } else {
     ElementHelper.create('img').setClass('icon').setSrc('assets/user.svg').setParent(profilePicture);
   }
-  ElementHelper.create('div').setClass('post-header-username').setText(post.owner.username).setParent(header);
+  ElementHelper.create('div').setClass('post-header-username').setText(post.ownerUsername).setParent(header);
   const formattedDate = moment(post.createdAt).fromNow();
   ElementHelper.create('div').setClass('post-header-timestamp').setText(formattedDate).setParent(header);
 
@@ -26,13 +26,13 @@ const createPostElement = (post, isModerator = false) => {
   const actions = ElementHelper.create('div').setClass('post-actions').setParent(container);
   const upvote = ElementHelper.create('div').setClass('post-actions-item post-actions-upvote').setParent(actions);
   ElementHelper.create('img').setClass('icon').setSrc('assets/upvote_inactive.svg').setParent(upvote);
-  ElementHelper.create('p').setText(post.upvotes).setParent(upvote);
+  ElementHelper.create('p').setText(post.upvoteCount).setParent(upvote);
   const downvote = ElementHelper.create('div').setClass('post-actions-item post-actions-downvote').setParent(actions);
   ElementHelper.create('img').setClass('icon').setSrc('assets/downvote_inactive.svg').setParent(downvote);
-  ElementHelper.create('p').setText(post.downvotes).setParent(downvote);
+  ElementHelper.create('p').setText(post.downvoteCount).setParent(downvote);
   const comment = ElementHelper.create('div').setClass('post-actions-item post-actions-comment').setParent(actions);
   ElementHelper.create('img').setClass('icon').setSrc('assets/comment.svg').setParent(comment);
-  ElementHelper.create('p').setText(post.comments).setParent(comment);
+  ElementHelper.create('p').setText(post.commentCount).setParent(comment);
   if (isModerator) {
     const remove = ElementHelper.create('div').setClass('post-actions-item post-actions-ban').setParent(actions);
     ElementHelper.create('img').setClass('icon').setSrc('assets/remove.svg').setParent(remove);
@@ -41,8 +41,10 @@ const createPostElement = (post, isModerator = false) => {
   return container.htmlElement;
 };
 
-const posts = generateRandomPosts(30);
 const postsHolder = document.querySelector('.home-posts');
-posts.forEach(post => {
-  postsHolder.appendChild(createPostElement(post, true));
+
+api.get(`/api/feed/recent?lastDate=${new Date()}`).then(data => {
+  data.posts.forEach(post => {
+    postsHolder.appendChild(createPostElement(post, true));
+  });
 });
