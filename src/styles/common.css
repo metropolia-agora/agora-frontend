@@ -1,3 +1,5 @@
+/* ----- COMMON STYLES ----- */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +19,8 @@ body {
   width: 16px;
   height: 16px;
 }
+
+/* ----- HEADER ----- */
 
 header {
   display: flex;
@@ -45,10 +49,7 @@ header img:hover, img:active {
   background-color: #eeeeee;
 }
 
-main {
-  flex: 1;
-  background-color: #eeeeee;
-}
+/* ----- MOBILE NAVIGATION ----- */
 
 #mobile-nav {
   width: 100%;
@@ -77,11 +78,7 @@ main {
   background-color: #eeeeee;
 }
 
-.home-posts {
-  margin-bottom: 48px;
-}
-
-/* POST STYLES */
+/* ----- POST - CONTAINER ----- */
 
 .post-container {
   display: flex;
@@ -90,6 +87,8 @@ main {
   background-color: #fefefe;
   padding: 14px 18px;
 }
+
+/* ----- POST - HEADER ----- */
 
 .post-header {
   height: 32px;
@@ -126,6 +125,8 @@ main {
   margin-left: auto;
 }
 
+/* ----- POST - CONTENT ----- */
+
 .post-content {
   display: flex;
   flex-direction: column;
@@ -145,6 +146,8 @@ main {
 .post-content *:nth-child(2) {
   padding-top: 16px;
 }
+
+/* ----- POST - ACTIONS ----- */
 
 .post-actions {
   height: 32px;

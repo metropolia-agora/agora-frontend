@@ -1,3 +1,10 @@
-/* Home page styles */
+/* ----- HOME STYLES ----- */
 
-.home-page {}
+.home-page {
+  background-color: #eeeeee;
+}
+
+.home-posts {
+  flex: 1;
+  margin-bottom: 48px;
+}
