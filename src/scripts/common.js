@@ -45,7 +45,7 @@ const generateRandomPosts = (amount) => {
       owner: {
         id: faker.random.uuid(),
         username: faker.internet.userName(),
-        filename: `https://picsum.photos/seed/${faker.random.uuid()}/200/300`,
+        filename: Math.random() <= 0.7 ? `https://picsum.photos/seed/${faker.random.uuid()}/200/300` : null,
       },
       upvotes: Math.round(Math.random() * 50),
       downvotes: Math.round(Math.random() * 10),
