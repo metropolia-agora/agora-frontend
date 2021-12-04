@@ -137,7 +137,9 @@ main {
 }
 
 .post-content img {
-  width: 100%
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
 }
 
 .post-content *:nth-child(2) {

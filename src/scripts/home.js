@@ -1,6 +1,6 @@
 // Home scripts
 
-const createPostElement = (post, isModerator = false) => {
+const renderPostTo = (parent, post, isModeratorView = false) => {
 
   // Container
   const container = ElementHelper.create('div').setClass('post-container');
@@ -33,18 +33,19 @@ const createPostElement = (post, isModerator = false) => {
   const comment = ElementHelper.create('div').setClass('post-actions-item post-actions-comment').setParent(actions);
   ElementHelper.create('img').setClass('icon').setSrc('assets/comment.svg').setParent(comment);
   ElementHelper.create('p').setText(post.commentCount).setParent(comment);
-  if (isModerator) {
+  if (isModeratorView) {
     const remove = ElementHelper.create('div').setClass('post-actions-item post-actions-ban').setParent(actions);
     ElementHelper.create('img').setClass('icon').setSrc('assets/remove.svg').setParent(remove);
   }
 
-  return container.htmlElement;
+  // Attach post to parent
+  return parent.appendChild(container.htmlElement);
 };
 
+// Get post holder component
 const postsHolder = document.querySelector('.home-posts');
 
+// Fetch and render most recent posts
 api.get(`/api/feed/recent?lastDate=${new Date()}`).then(data => {
-  data.posts.forEach(post => {
-    postsHolder.appendChild(createPostElement(post, true));
-  });
+  data.posts.forEach(post => renderPostTo(postsHolder, post, true));
 });
