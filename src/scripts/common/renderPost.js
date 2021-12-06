@@ -132,7 +132,7 @@ export const renderPost = (parent, post, user) => {
   ElementHelper.create('p').setText(post.commentCount).setParent(comment);
 
   // Actions - remove
-  if (user.type === 2 || user.id === post.userId) {
+  if (user?.type === 2 || user?.id === post.userId) {
     const remove = ElementHelper.create('div').setClass('post-actions-item remove').setOnClick(onPressRemove(post.id)).setParent(actions);
     ElementHelper.create('img').setClass('icon').setSrc('assets/remove.svg').setParent(remove);
   }
