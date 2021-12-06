@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 // Set up static middleware
-app.use(express.static(path.join(__dirname, '')));
+app.use(express.static(path.join(__dirname, ''), { extensions: ['html', 'js'] }));
 
 // Enable CORS and pre-flight checks for all routes
 app.use(cors());

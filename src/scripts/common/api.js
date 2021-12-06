@@ -6,8 +6,9 @@ const BASE_URL = 'http://localhost:5000';
 // Execute API requests with authorization header
 const executeApiCall = async (method, path, body) => {
   const token = storage.getToken();
-  const headers = token ? { authorization: `Bearer ${token}` } : {};
-  const response = await fetch(BASE_URL + path, { method, body, headers });
+  const authorization = token ? { authorization: `Bearer ${token}` } : {};
+  const headers = { 'Content-Type': 'application/json', ...authorization };
+  const response = await fetch(BASE_URL + path, { method, body: JSON.stringify(body), headers });
   return response.json();
 }
 

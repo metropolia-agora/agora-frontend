@@ -17,7 +17,7 @@ export class ElementHelper {
   }
 
   setOnClick(onClick) {
-    this.htmlElement.onClick = onClick;
+    this.htmlElement.addEventListener('click', onClick);
     return this;
   }
 
