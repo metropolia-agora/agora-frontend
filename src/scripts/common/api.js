@@ -1,7 +1,7 @@
 import { storage } from './storage';
 
 // Backend base URL
-const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'http://localhost:5000';
 
 // Execute API requests with authorization header
 const executeApiCall = async (method, path, body) => {

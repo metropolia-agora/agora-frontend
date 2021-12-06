@@ -1,3 +1,5 @@
+import { BASE_URL } from './api';
+
 // ElementHelper utility class
 export class ElementHelper {
   htmlElement;
@@ -23,7 +25,9 @@ export class ElementHelper {
 
   setSrc(src) {
     if (this.htmlElement.tagName === 'IMG') {
-      this.htmlElement.src = src;
+      const isAsset = src.startsWith('assets/');
+      const isPicsum = src.startsWith('https://picsum.photos/');
+      this.htmlElement.src = (isAsset || isPicsum) ? src : `${BASE_URL}/api/files/${src}`;
       return this;
     }
   }
