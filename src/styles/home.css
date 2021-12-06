@@ -1,10 +1,10 @@
 /* ----- HOME STYLES ----- */
 
 .home-page {
+  flex: 1;
   background-color: #eeeeee;
 }
 
 .home-posts {
-  flex: 1;
   margin-bottom: 48px;
 }
