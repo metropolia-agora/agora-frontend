@@ -17,6 +17,7 @@ let isLoading = false;
 const fetchPostsFromFeed = async () => {
   isLoading = true;
   const data = await api.get(`/api/feed/recent?lastDate=${lastDate}`);
+  if (!data.posts?.length) return;
   data.posts.forEach(post => renderPost(postsHolder, post, user));
   const lastPost = data.posts[data.posts.length - 1];
   lastDate = lastPost.createdAt;
