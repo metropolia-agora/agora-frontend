@@ -1,6 +1,7 @@
 import { api } from './api';
 import { ElementHelper } from './ElementHelper';
 
+// Up-/downvote icons (active and inactive)
 const icons = {
   upvote: {
     active: 'assets/upvote_active.svg',
@@ -16,6 +17,8 @@ const icons = {
 const onPressReact = (postId, userId, type) => async (event) => {
   event.stopImmediatePropagation();
   if (!userId) return;
+
+  // Get elements and check if the user has already up-/downvoted the post
   const upvoteCount = document.querySelector(`#post_${postId} > .post-actions > .upvote > p`);
   const downvoteCount = document.querySelector(`#post_${postId} > .post-actions > .downvote > p`);
   const upvoteIMG = document.querySelector(`#post_${postId} > .post-actions > .upvote > img`);
@@ -23,6 +26,7 @@ const onPressReact = (postId, userId, type) => async (event) => {
   const isUpvoted = !upvoteIMG.src.includes('inactive');
   const isDownvoted = !downvoteIMG.src.includes('inactive');
 
+  // Handle upvoting
   if (type === 1) {
     if (isUpvoted) {
       upvoteCount.textContent = String(Number.parseInt(upvoteCount.textContent) - 1);
@@ -39,6 +43,7 @@ const onPressReact = (postId, userId, type) => async (event) => {
     }
   }
 
+  // Handle downvoting
   if (type === -1) {
     if (isDownvoted) {
       downvoteCount.textContent = String(Number.parseInt(downvoteCount.textContent) - 1);
@@ -61,8 +66,7 @@ const onPressRemove = (postId) => async (event) => {
   event.stopImmediatePropagation();
   if (window.confirm('Are you sure you want to remove this post? This cannot be undone.')) {
     await api.delete(`/api/posts/${postId}`);
-    const post = document.querySelector(`#post_${postId}`);
-    post.remove();
+    document.querySelector(`#post_${postId}`).remove();
   }
 };
 

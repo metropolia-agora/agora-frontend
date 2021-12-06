@@ -23,13 +23,13 @@ const check = async () => {
 const signin = (token, userId) => {
   storage.setToken(token);
   storage.setUserId(userId);
-  window.location.reload();
+  window.location.assign('/');
 };
 
 // Clear the authentication credentials and sign the user out
 const signout = () => {
   storage.clear();
-  window.location.reload();
+  window.location.assign('/');
 };
 
 // Authentication utility functions

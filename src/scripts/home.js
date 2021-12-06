@@ -2,14 +2,13 @@ import { api } from './common/api';
 import { authentication } from './common/authentication';
 import { renderPost } from './common/renderPost';
 
-// Authentication check
+// Authentication check (User or null)
 const user = await authentication.check();
-console.log('Signed in as', user || 'anon');
 
 // Get post list holder component
 const postsHolder = document.querySelector('.home-posts');
 
-// Last date before which posts are shown, fetch trigger element, loading indicator
+// Last date before which posts are to be fetched, fetch trigger element, loading indicator
 let lastDate = new Date();
 let triggerElement = null;
 let isLoading = false;
