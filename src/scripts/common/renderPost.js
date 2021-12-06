@@ -1,5 +1,5 @@
 import { api } from './api';
-import { ElementHelper } from './ElementHelper.js';
+import { ElementHelper } from './ElementHelper';
 
 const icons = {
   upvote: {

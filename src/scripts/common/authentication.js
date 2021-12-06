@@ -1,5 +1,5 @@
-import { api } from './api.js';
-import { storage } from './storage.js';
+import { api } from './api';
+import { storage } from './storage';
 
 // Check the authentication credentials and return user data
 const check = async () => {

@@ -1,4 +1,4 @@
-import { storage } from './storage.js';
+import { storage } from './storage';
 
 // Backend base URL
 const BASE_URL = 'http://localhost:5000';

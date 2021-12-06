@@ -1,6 +1,4 @@
-import { api } from './common/api.js';
-import { authentication } from './common/authentication.js';
-import { renderPost } from './common/renderPost.js';
+import { api, authentication, renderPost } from './common';
 
 // Authentication check
 const user = await authentication.check();

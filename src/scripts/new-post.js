@@ -1,4 +1,4 @@
-import { authentication } from './common/authentication.js';
+import { authentication } from './common';
 
 // Authentication check
 const user = await authentication.check();
