@@ -25,6 +25,13 @@ body {
 header {
   display: flex;
   align-items: center;
+  padding: 0 8px;
+}
+
+header > img {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
 }
 
 header > h1 {
@@ -32,7 +39,7 @@ header > h1 {
   font-weight: 700;
   letter-spacing: 1px;
   color: #656565;
-  padding: 10px 16px;
+  padding: 10px 8px;
   margin-right: auto;
 }
 
@@ -72,7 +79,7 @@ header > h1 {
   flex-direction: column;
   margin-top: 12px;
   background-color: #fefefe;
-  padding: 14px 18px;
+  padding: 14px 16px;
 }
 
 /* ----- POST - HEADER ----- */

@@ -1,3 +1,74 @@
 /* ----- VIEW POST STYLES ----- */
 
-.view-post-page {}
+.view-post-page {
+  flex: 1;
+  background-color: #eeeeee;
+}
+
+#comment-holder {
+  background-color: #ffffff;
+  margin-bottom: 12px;
+}
+
+/* ----- COMMENT CONTAINER ----- */
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 16px;
+  border-top: 1px solid #eeeeee;
+}
+
+/* ----- COMMENT PROFILE ----- */
+
+.comment-profile {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+.comment-profile > img:not(.icon) {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ----- COMMENT CONTENT ----- */
+
+.comment-content {
+  flex: 1;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.comment-content > p {
+  display: inline;
+}
+
+.comment-content > p:first-child {
+  font-weight: 600;
+  padding-right: 4px;
+}
+
+/* ----- COMMENT ACTIONS ----- */
+
+.comment-actions {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-actions > img {
+  width: 32px;
+  height: 32px;
+  padding: 0 7px;
+  border-radius: 16px;
+  border: 1px solid #eeeeee;
+}
