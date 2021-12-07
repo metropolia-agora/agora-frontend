@@ -92,7 +92,7 @@ const onPressComment = (postId) => (event) => {
 export const renderPost = (parent, post, user) => {
 
   // Container
-  const container = ElementHelper.create('div').setId(`post_${post.id}`).setOnClick(onPressPost(post.id)).setClass('post-container');
+  const container = ElementHelper.create('div').setId(`post_${post.id}`).setClass('post-container');
 
   // Header
   const header = ElementHelper.create('div').setClass('post-header').setParent(container);
@@ -107,7 +107,7 @@ export const renderPost = (parent, post, user) => {
   ElementHelper.create('div').setClass('post-header-timestamp').setText(formattedDate).setParent(header);
 
   // Content
-  const content = ElementHelper.create('div').setClass(`post-content`).setParent(container);
+  const content = ElementHelper.create('div').setClass(`post-content`).setOnClick(onPressPost(post.id)).setParent(container);
   if (post.content) ElementHelper.create('p').setText(post.content).setParent(content);
   if (post.filename) ElementHelper.create('img').setSrc(post.filename).setParent(content);
 
