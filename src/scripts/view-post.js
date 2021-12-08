@@ -19,8 +19,15 @@ if (!data.ok) {
 } else {
   const { post, comments } = data;
   console.log('viewing post', post, comments);
+
+  // Render post
   const postHolder = document.querySelector('#post-holder');
   renderPost(postHolder, post, user);
+
+  // Render comments
+  const ownComments = user ? comments.filter(c => c.userId === user.id) : [];
+  const otherComments = user ? comments.filter(c => c.userId !== user.id) : comments;
   const commentHolder = document.querySelector('#comment-holder');
-  comments.forEach(comment => renderComment(commentHolder, comment, user));
+  ownComments.forEach(comment => renderComment(commentHolder, comment, user));
+  otherComments.forEach(comment => renderComment(commentHolder, comment, user));
 }

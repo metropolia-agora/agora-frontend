@@ -19,8 +19,8 @@ export const renderComment = (parent, comment, user) => {
   ElementHelper.create('p').setText(comment.content).setParent(content);
 
   // Actions
-  const actions = ElementHelper.create('div').setClass('comment-actions').setParent(container);
   if (user?.type === 2 || user?.id === comment.ownerId) {
+    const actions = ElementHelper.create('div').setClass('comment-actions').setParent(container);
     ElementHelper.create('img').setSrc('assets/remove.svg').setParent(actions);
   }
 
