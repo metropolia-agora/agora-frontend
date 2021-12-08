@@ -165,3 +165,36 @@ header > h1 {
   margin-left: auto;
   margin-right: 0;
 }
+
+/* ----- FORMS AT SIGN IN/UP----- */
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  margin: 15% 10% 4% 10%;
+  position: relative;
+}
+
+.forms * {
+  margin: 1%;
+}
+
+.forms input {
+/*TODO: set color when scheme decided
+  background-color: #;*/
+  border: black solid 1px;
+  border-radius: 2px;
+  padding: 0.5% 3%;
+}
+
+.forms button {
+  /*TODO: set color when scheme decided
+    background-color: #;*/
+  border: black solid 1px;
+  border-radius: 2px;
+}
+
+.forms button:active {
+  /*TODO: set color when scheme decided
+    background-color: #;*/
+}

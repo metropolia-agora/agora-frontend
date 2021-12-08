@@ -1,3 +1,23 @@
 /* ----- SIGN IN STYLES ----- */
 
 .signin-page {}
+
+::placeholder {
+    color: black;
+}
+
+#orSignup {
+    font-size: small;
+    position: absolute;
+    right: 11%;
+}
+
+a, a:visited {
+    /*TODO: set color when scheme decided
+      color: #;*/
+}
+
+a:active, a:hover {
+    /*TODO: set color when scheme decided
+      color: #;*/
+}
