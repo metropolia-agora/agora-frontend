@@ -9,10 +9,10 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
-  <link href="styles/common.css" rel="stylesheet" type="text/css">
-  <link href="styles/signup.css" rel="stylesheet" type="text/css">
+  <link href="../styles/common.css" rel="stylesheet" type="text/css">
+  <link href="../styles/signup.css" rel="stylesheet" type="text/css">
   <script src="https://unpkg.com/moment@2.29.1/min/moment.min.js" crossorigin="anonymous"></script>
-  <script type="module" defer src="scripts/signup.js"></script>
+  <script type="module" defer src="../scripts/signup.js"></script>
 </head>
 <body>
 
@@ -21,7 +21,12 @@
   </header>
 
   <main class="signup-page">
-    <!-- CONTENT GOES HERE -->
+    <form class="forms" id="signup-form">
+      <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" required>
+      <input id="field-password" type="password" pattern="(?=.*[A-Z]).{8,}" placeholder="Password" required>
+      <input id="field-passwordMatch" type="password" placeholder="Password again" required>
+      <button type="submit">Sign up</button>
+    </form>
   </main>
 
 </body>
