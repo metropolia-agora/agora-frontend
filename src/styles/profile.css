@@ -1,3 +1,9 @@
 /* ----- PROFILE STYLES ----- */
 
-.profile-page {}
+.profile-page {
+    flex: 1;
+    background-color: #eeeeee;
+}
+.profile-posts{
+    margin-bottom: 48px;
+}

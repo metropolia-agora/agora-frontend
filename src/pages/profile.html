@@ -9,10 +9,10 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
-  <link href="styles/common.css" rel="stylesheet" type="text/css">
-  <link href="styles/profile.css" rel="stylesheet" type="text/css">
+  <link href="../styles/common.css" rel="stylesheet" type="text/css">
+  <link href="../styles/profile.css" rel="stylesheet" type="text/css">
   <script src="https://unpkg.com/moment@2.29.1/min/moment.min.js" crossorigin="anonymous"></script>
-  <script type="module" defer src="scripts/profile.js"></script>
+  <script type="module" defer src="../scripts/profile.js"></script>
 </head>
 <body>
 
@@ -21,8 +21,13 @@
   </header>
 
   <main class="profile-page">
-    <!-- CONTENT GOES HERE -->
-  </main>
+    <div class="profile-posts"></div>
+
+    <nav id="mobile-nav">
+      <img id="mobile-nav-home" src="../assets/home.svg" alt="Home">
+      <img id="mobile-nav-new" src="../assets/new.svg" alt="New post">
+      <img id="mobile-nav-profile" src="../assets/user.svg" alt="Profile">
+    </nav>  </main>
 
 </body>
 </html>
