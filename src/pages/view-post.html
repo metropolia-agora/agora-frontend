@@ -23,9 +23,16 @@
 
   <main class="view-post-page">
 
-    <div id="post-holder"></div>
+    <div class="view-post-content">
+      <div id="post-holder"></div>
+      <div id="comment-holder"></div>
+    </div>
 
-    <div id="comment-holder"></div>
+    <div id="new-comment-container" class="hidden">
+      <div id="new-comment-profile"></div>
+      <input id="new-comment-input" type="text" placeholder="Add a comment">
+      <p id="new-comment-button" class="disabled">post</p>
+    </div>
 
   </main>
 

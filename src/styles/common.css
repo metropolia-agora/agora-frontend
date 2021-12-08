@@ -6,6 +6,7 @@
   outline: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  user-select: none;
 }
 
 body {
@@ -26,6 +27,7 @@ header {
   display: flex;
   align-items: center;
   padding: 0 8px;
+  border-bottom: 1px solid #eeeeee;
 }
 
 header > img {

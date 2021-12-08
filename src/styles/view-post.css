@@ -1,13 +1,63 @@
 /* ----- VIEW POST STYLES ----- */
 
 .view-post-page {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background-color: #eeeeee;
+  overflow: hidden;
 }
 
-#comment-holder {
-  background-color: #ffffff;
+.view-post-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
   margin-bottom: 12px;
+}
+
+/* ----- NEW COMMENT ----- */
+
+#new-comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border-top: 1px solid #eeeeee;
+}
+
+#new-comment-profile {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+#new-comment-profile > img:not(.icon) {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#new-comment-container > input {
+  flex: 1;
+  border: none;
+  padding: 0 16px;
+}
+
+#new-comment-container > p {
+  font-size: 14px;
+  color: #656565;
+}
+
+#new-comment-container > p.disabled {
+  color: #eeeeee;
 }
 
 /* ----- COMMENT CONTAINER ----- */
@@ -17,6 +67,11 @@
   flex-direction: row;
   padding: 10px 16px;
   border-top: 1px solid #eeeeee;
+  background-color: #ffffff;
+}
+
+.comment-container.hidden {
+  display: none;
 }
 
 /* ----- COMMENT PROFILE ----- */

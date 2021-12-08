@@ -79,7 +79,11 @@ const onPressUser = (userId) => (event) => {
 // Handle pressing the post and navigating to the detailed post view
 const onPressPost = (postId) => (event) => {
   event.stopImmediatePropagation();
-  window.location.assign(`/post?id=${postId}`);
+  const currentURL = window.location.href.replace(window.location.origin, '');
+  const viewPostURL = `/post?id=${postId}`;
+  if (currentURL !== viewPostURL) {
+    window.location.assign(viewPostURL);
+  }
 };
 
 // Handle pressing the comment button and navigating to the detailed post view's comment section
@@ -88,7 +92,7 @@ const onPressComment = (postId) => (event) => {
   window.location.assign(`/post?id=${postId}#comments`);
 };
 
-// Render post into parent element
+// Render a post into parent element
 export const renderPost = (parent, post, user) => {
 
   // Container
@@ -138,5 +142,9 @@ export const renderPost = (parent, post, user) => {
   }
 
   // Attach post to parent
-  return parent.appendChild(container.htmlElement);
+  if (parent) {
+    parent.appendChild(container.htmlElement);
+  } else {
+    return container.htmlElement;
+  }
 };
