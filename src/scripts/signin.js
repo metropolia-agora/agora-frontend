@@ -6,7 +6,7 @@ const user = await authentication.check();
 console.log('Signed in as', user || 'anon');
 
 if (user) {
-    alert('You are already signed in.')
+    window.location.assign('/');
 }
 
 // Pick html elements
