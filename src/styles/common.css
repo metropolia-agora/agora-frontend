@@ -6,6 +6,7 @@
   outline: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  user-select: none;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  background-color: #eeeeee;
 }
 
 .icon {
@@ -25,6 +27,15 @@ body {
 header {
   display: flex;
   align-items: center;
+  padding: 0 8px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+header > img {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
 }
 
 header > h1 {
@@ -32,37 +43,8 @@ header > h1 {
   font-weight: 700;
   letter-spacing: 1px;
   color: #656565;
-  padding: 10px 16px;
+  padding: 10px 8px;
   margin-right: auto;
-}
-
-/* ----- MOBILE NAVIGATION ----- */
-
-#mobile-nav {
-  width: 100%;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  background-color: #ffffff;
-  border-top: 1px solid #dddddd;
-  box-shadow: -1px 0 5px 0 #0000001c;
-}
-
-#mobile-nav > img {
-  width: 44px;
-  height: 44px;
-  margin: 8px;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background-color 0.2s ease-out;
-}
-
-#mobile-nav > img:hover, #mobile-nav > img:active {
-  background-color: #eeeeee;
 }
 
 /* ----- POST - CONTAINER ----- */
@@ -72,7 +54,7 @@ header > h1 {
   flex-direction: column;
   margin-top: 12px;
   background-color: #fefefe;
-  padding: 14px 18px;
+  padding: 14px 16px;
 }
 
 /* ----- POST - HEADER ----- */
@@ -119,7 +101,7 @@ header > h1 {
 .post-content {
   display: flex;
   flex-direction: column;
-  padding: 14px 0;
+  margin: 14px 0;
 }
 
 .post-content > p {

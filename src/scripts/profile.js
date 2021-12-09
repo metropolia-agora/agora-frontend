@@ -3,14 +3,14 @@ import { authentication } from './common/authentication';
 
 // Authentication check
 const user = await authentication.check();
-console.log('Signed in as', user || 'anon');
 
 // Load the data of the user whose profile is being viewed
 const id = new URL(window.location).searchParams.get('id');
 const data = await api.get(`/api/users/${id}`);
 if (!data.ok) {
-  console.log('wrong user');
+  window.location.replace('/404');
 } else {
   const viewing = data.user;
-  console.log('viewing the profile of', viewing.username);
+  const headerTitle = document.querySelector('header h1');
+  headerTitle.textContent = viewing.username;
 }

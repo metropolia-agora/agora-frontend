@@ -17,11 +17,23 @@
 <body>
 
   <header>
-    <h1>View post</h1>
+    <img src="assets/back.svg" alt="Go back" onclick="window.history.back()">
+    <h1>Post</h1>
   </header>
 
-  <main class="view-post-page">
-    <!-- CONTENT GOES HERE -->
+  <main class="view-post-page new-comment-hidden">
+
+    <div class="view-post-content">
+      <div id="post-holder"></div>
+      <div id="comment-holder"></div>
+    </div>
+
+    <div id="new-comment-container" class="hidden">
+      <div id="new-comment-profile"></div>
+      <input id="new-comment-input" type="text" placeholder="Add a comment">
+      <button id="new-comment-button" class="disabled">post</button>
+    </div>
+
   </main>
 
 </body>
