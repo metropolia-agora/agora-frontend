@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages/home.html'));
 });
 
+// Welcome page
+app.get('/welcome', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages/welcome.html'));
+});
+
 // Sign in page
 app.get('/signin', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages/signin.html'));

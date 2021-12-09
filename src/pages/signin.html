@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   <link href="styles/common.css" rel="stylesheet" type="text/css">
   <link href="styles/signin.css" rel="stylesheet" type="text/css">
+  <script src="scripts/common/checkOnboarding.js"></script>
   <script type="module" defer src="scripts/signin.js"></script>
 </head>
 <body>
@@ -21,8 +22,8 @@
   <main class="signin-page">
     <form class="forms" id="signin-form">
       <h2>Sign in to your account</h2>
-      <input id="field-username" type="text" placeholder="Username" required>
-      <input id="field-password" type="password" placeholder="Password" required>
+      <input id="field-username" type="text" placeholder="Username" autocomplete="username" required>
+      <input id="field-password" type="password" placeholder="Password" autocomplete="current-password" required>
       <button type="submit">Sign in</button>
       <p>Don't have an account? <a href="/signup">Sign up</a></p>
     </form>
