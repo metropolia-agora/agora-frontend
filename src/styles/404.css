@@ -1,6 +1,7 @@
 /* ----- 404 STYLES ----- */
 
 .not-found-page {
+  flex: 1;
   background-color: #ffffff;
 }
 
