@@ -1,8 +1,11 @@
 {
   "name": "agora-frontend",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "lint": "eslint ./src/scripts --ext .js",
+    "lint:fix": "eslint ./src/scripts --fix --ext .js"
   },
   "dependencies": {
     "cors": "^2.8.5",

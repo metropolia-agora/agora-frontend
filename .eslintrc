@@ -8,6 +8,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "globals": {
+    "moment": true
+  },
   "rules": {
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs"],
@@ -18,7 +21,7 @@
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
-    "max-len": ["error", 120],
+    "max-len": ["error", 200],
     "no-else-return": "off",
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
     "no-trailing-spaces": "error",
