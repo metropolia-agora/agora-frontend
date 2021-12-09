@@ -1,3 +1,11 @@
 /* ----- SIGN IN STYLES ----- */
 
-.signin-page {}
+.signin-page {
+  flex: 1;
+  padding: 16px 32px;
+  background-color: #ffffff;
+}
+
+header > h1 {
+  color: #017ef8;
+}

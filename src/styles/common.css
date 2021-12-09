@@ -147,3 +147,56 @@ header > h1 {
   margin-left: auto;
   margin-right: 0;
 }
+
+/* ----- FORMS ----- */
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+}
+
+.forms > h2 {
+  font-size: 20px;
+  color: #585858;
+  font-weight: 600;
+}
+
+.forms > input {
+  color: #585858;
+  padding: 16px;
+  font-size: 14px;
+  margin-top: 24px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 1px 5px 0 #00000027;
+}
+
+.forms > button {
+  margin-top: 32px;
+  border: none;
+  padding: 16px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #017ef8;
+  box-shadow: 0 0 5px 0 #017ef869;
+}
+
+.forms > button:active {
+  background-color: #0866c9;
+  box-shadow: 0 0 5px 0 #0866c969;
+}
+
+.forms > p {
+  font-size: 14px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.forms > p > a {
+  color: #017ef8;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
