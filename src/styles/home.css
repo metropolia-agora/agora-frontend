@@ -8,3 +8,32 @@
 .home-posts {
   margin-bottom: 48px;
 }
+
+/* ----- MOBILE NAVIGATION ----- */
+
+#mobile-nav {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  border-top: 1px solid #dddddd;
+  box-shadow: -1px 0 5px 0 #0000001c;
+}
+
+#mobile-nav > img {
+  width: 44px;
+  height: 44px;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-out;
+}
+
+#mobile-nav > img:hover, #mobile-nav > img:active {
+  background-color: #eeeeee;
+}

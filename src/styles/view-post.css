@@ -13,6 +13,9 @@
   flex-direction: column;
   flex: 1;
   overflow-y: auto;
+}
+
+.view-post-content > #comment-holder {
   margin-bottom: 12px;
 }
 
@@ -51,12 +54,14 @@
   padding: 0 16px;
 }
 
-#new-comment-container > p {
+#new-comment-container > button {
   font-size: 14px;
   color: #656565;
+  border: none;
+  background-color: transparent;
 }
 
-#new-comment-container > p.disabled {
+#new-comment-container > button.disabled {
   color: #eeeeee;
 }
 

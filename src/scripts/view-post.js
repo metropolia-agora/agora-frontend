@@ -7,15 +7,11 @@ import { ElementHelper } from './common/ElementHelper';
 // Authentication check
 const user = await authentication.check();
 
-// Back button handler
-const backButton = document.querySelector('header > img');
-backButton.addEventListener('click', () => window.history.back());
-
 // Load the data of the post that is being viewed
 const id = new URL(window.location).searchParams.get('id');
 const data = await api.get(`/api/posts/${id}`);
 if (!data.ok) {
-  console.log('wrong post');
+  window.location.replace('/404');
 } else {
   const { post, comments } = data;
 
@@ -37,9 +33,12 @@ if (!data.ok) {
     const newCommentElement = document.querySelector('#new-comment-container');
     newCommentElement.classList.remove('hidden');
 
-    // Add new comments
+    // Get input and button elements
     const commentButton = document.querySelector('#new-comment-button');
     const commentInput = document.querySelector('#new-comment-input');
+
+    // Autofocus new comment input field if the url has #comments
+    if (window.location.hash === '#comments') commentInput.focus();
 
     // Set user profile picture for new comment
     const commentProfile = document.querySelector('#new-comment-profile');
@@ -52,20 +51,19 @@ if (!data.ok) {
     // Disable comment button when comment input is empty
     commentInput.addEventListener('keyup', async (event) => {
       if (event.keyCode === 13) {
-        await handleNewCommitSubmit();
+        await handleNewCommentSubmit();
       } else {
         commentButton.className = commentInput.value ? '' : 'disabled';
       }
     });
 
     // Listen to clicking the add comment button
-    commentButton.addEventListener('click', async (event) => {
-      event.stopImmediatePropagation();
-      await handleNewCommitSubmit();
+    commentButton.addEventListener('click', async () => {
+      await handleNewCommentSubmit();
     });
 
     // Handle posting comment to api, rendering new comment, emptying input field
-    const handleNewCommitSubmit = async () => {
+    const handleNewCommentSubmit = async () => {
       const content = commentInput.value;
       if (content) {
         const response = await api.post(`/api/posts/${post.id}/comments`, { content });
