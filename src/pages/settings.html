@@ -21,7 +21,9 @@
   </header>
 
   <main class="settings-page">
-    <input type="image" src="assets/logout.svg" alt="Logout">
+    <input id="logout" type="image" src="assets/logout.svg" alt="Logout">
+
+    <span class="hidden" id="success">Saved</span>
 
     <h3>Change username</h3>
     <form class="forms" id="change-username">
@@ -40,7 +42,7 @@
     <h3>Delete account</h3>
     <form class="forms" id="delete-user">
       <input id="field-password" type="text" placeholder="Password" required>
-      <button type="submit">Delete</button>
+      <button id="deleteButton" type="submit">Delete</button>
     </form>
   </main>
 
