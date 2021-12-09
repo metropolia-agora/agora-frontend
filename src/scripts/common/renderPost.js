@@ -16,7 +16,12 @@ const icons = {
 // Handle reacting to a post, update UI and call API
 const onPressReact = (postId, userId, type) => async (event) => {
   event.stopImmediatePropagation();
-  if (!userId) return;
+  if (!userId) {
+    if (window.confirm('You need to sign in to be able to do this. Do you want to sign in now?')) {
+      window.location.assign('/signin');
+    }
+    return;
+  }
 
   // Get elements and check if the user has already up-/downvoted the post
   const upvoteCount = document.querySelector(`#post_${postId} > .post-actions > .upvote > p`);
@@ -66,7 +71,12 @@ const onPressRemove = (postId) => async (event) => {
   event.stopImmediatePropagation();
   if (window.confirm('Are you sure you want to remove this post? This cannot be undone.')) {
     await api.delete(`/api/posts/${postId}`);
-    document.querySelector(`#post_${postId}`).remove();
+    const isOnViewPostScreen = window.location.pathname === '/post';
+    if (isOnViewPostScreen) {
+      window.history.back();
+    } else {
+      document.querySelector(`#post_${postId}`).remove();
+    }
   }
 };
 
@@ -86,9 +96,26 @@ const onPressPost = (postId) => (event) => {
   }
 };
 
+// Format dates into human readable form
+const formatDate = (date) => {
+  const momentDate = moment(date);
+  const oneDayAfter = moment(date).add(1, 'day');
+  if (moment().isBefore(oneDayAfter)) {
+    return momentDate.fromNow();
+  } else {
+    return momentDate.format('YYYY-MM-DD HH:mm');
+  }
+};
+
 // Handle pressing the comment button and navigating to the detailed post view's comment section
-const onPressComment = (postId) => (event) => {
+const onPressComment = (postId, userId) => (event) => {
   event.stopImmediatePropagation();
+  if (!userId) {
+    if (window.confirm('You need to sign in to be able to do this. Do you want to sign in now?')) {
+      window.location.assign('/signin');
+    }
+    return;
+  }
   const currentURL = window.location.pathname + window.location.search;
   const viewPostURL = `/post?id=${postId}`;
   if (currentURL !== viewPostURL) {
@@ -115,8 +142,7 @@ export const renderPost = (parent, post, user) => {
     ElementHelper.create('img').setClass('icon').setSrc('assets/user.svg').setParent(profilePicture);
   }
   ElementHelper.create('div').setClass('post-header-username').setText(post.ownerUsername).setOnClick(onPressUser(post.userId)).setParent(header);
-  const formattedDate = moment(post.createdAt).fromNow();
-  ElementHelper.create('div').setClass('post-header-timestamp').setText(formattedDate).setParent(header);
+  ElementHelper.create('div').setClass('post-header-timestamp').setText(formatDate(post.createdAt)).setParent(header);
 
   // Content
   const content = ElementHelper.create('div').setClass('post-content').setOnClick(onPressPost(post.id)).setParent(container);
@@ -139,7 +165,7 @@ export const renderPost = (parent, post, user) => {
   ElementHelper.create('p').setText(post.downvoteCount).setParent(downvote);
 
   // Actions - comment
-  const comment = ElementHelper.create('div').setClass('post-actions-item comment').setOnClick(onPressComment(post.id)).setParent(actions);
+  const comment = ElementHelper.create('div').setClass('post-actions-item comment').setOnClick(onPressComment(post.id, user?.id)).setParent(actions);
   ElementHelper.create('img').setClass('icon').setSrc('assets/comment.svg').setParent(comment);
   ElementHelper.create('p').setText(post.commentCount).setParent(comment);
 
