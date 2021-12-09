@@ -10,6 +10,7 @@ const inputPassword = document.getElementById('field-password');
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
+  // Get input field values
   const username = inputUsername.value;
   const password = inputPassword.value;
 
@@ -20,11 +21,8 @@ form.addEventListener('submit', async (event) => {
   // If all is good, store credentials to localStorage and redirect to home page
   if (!response.ok) {
     alert(response.message);
-    inputUsername.value = '';
-    inputPassword.value = '';
   } else {
     const { user, token } = response;
     authentication.signin(token, user.id);
   }
-
 });

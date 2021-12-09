@@ -11,6 +11,7 @@ const inputPasswordMatch = document.getElementById('field-passwordMatch');
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
+  // Get input field values
   const username = inputUsername.value;
   const password = inputPassword.value;
   const doesMatch = inputPasswordMatch.value;
@@ -24,7 +25,6 @@ form.addEventListener('submit', async (event) => {
     // If all is good, store credentials to localStorage and redirect to home page
     if (!response.ok) {
       alert(response.details.username);
-      inputUsername.value = '';
     } else {
       const { user, token } = response;
       authentication.signin(token, user.id);
@@ -32,8 +32,5 @@ form.addEventListener('submit', async (event) => {
 
   } else {
     alert('Passwords do not match.');
-    inputPassword.value = '';
-    inputPasswordMatch.value = '';
   }
-
 });
