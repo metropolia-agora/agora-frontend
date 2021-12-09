@@ -1,0 +1,31 @@
+/* ----- 404 STYLES ----- */
+
+.not-found-page {
+  background-color: #ffffff;
+}
+
+.not-found-container {
+  width: 100%;
+  text-align: center;
+}
+
+.not-found-container > h2 {
+  font-size: 48px;
+  color: #656565;
+  margin: 24px 32px 12px 32px;
+}
+
+.not-found-container > p {
+  font-size: 16px;
+  color: #656565;
+  margin: 24px 32px 24px 32px;
+}
+
+.not-found-container > button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  color: #656565;
+  background-color: #ffffff;
+  border: 2px solid #656565;
+  margin: 12px 32px 24px 32px;
+}
