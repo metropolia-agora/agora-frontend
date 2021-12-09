@@ -22,9 +22,9 @@
   <main class="signup-page">
     <form class="forms" id="signup-form">
       <h2>Create your account</h2>
-      <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" required>
-      <input id="field-password" type="password" pattern="(?=.*[A-Z]).{8,255}" placeholder="Password" required>
-      <input id="field-passwordMatch" type="password" placeholder="Confirm password" required>
+      <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" autocomplete="username" required>
+      <input id="field-password" type="password" pattern="(?=.*[A-Z]).{8,255}" placeholder="Password" autocomplete="new-password" required>
+      <input id="field-passwordMatch" type="password" placeholder="Confirm password" autocomplete="new-password" required>
       <button type="submit">Sign up</button>
       <p>Already have an account? <a href="/signin">Sign in</a></p>
     </form>
