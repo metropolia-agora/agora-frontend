@@ -5,6 +5,10 @@ import { api } from "./common/api";
 const user = await authentication.check();
 console.log('Signed in as', user || 'anon');
 
+if (user) {
+    alert('You are already signed in.')
+}
+
 // Pick html elements
 const form = document.getElementById('signin-form');
 const inputUsername = document.getElementById('field-username');
