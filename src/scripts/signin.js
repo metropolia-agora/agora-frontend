@@ -1,13 +1,5 @@
-import { authentication } from './common/authentication';
 import { api } from './common/api';
-
-// Authentication check
-const user = await authentication.check();
-console.log('Signed in as', user || 'anon');
-
-if (user) {
-  window.location.assign('/');
-}
+import { authentication } from './common/authentication';
 
 // Pick html elements
 const form = document.getElementById('signin-form');
