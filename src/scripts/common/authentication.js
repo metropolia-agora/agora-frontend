@@ -6,12 +6,14 @@ const check = async () => {
   const token = storage.getToken();
   const userId = storage.getUserId();
   if (!token || !userId) {
-    storage.clear();
+    storage.setToken(null);
+    storage.setUserId(null);
     return null;
   } else {
     const data = await api.get(`/api/users/${userId}`);
     if (!data.ok) {
-      storage.clear();
+      storage.setToken(null);
+      storage.setUserId(null);
       return null;
     } else {
       return data.user;
@@ -28,7 +30,8 @@ const signin = (token, userId) => {
 
 // Clear the authentication credentials and sign the user out
 const signout = () => {
-  storage.clear();
+  storage.setToken(null);
+  storage.setUserId(null);
   window.location.assign('/');
 };
 
