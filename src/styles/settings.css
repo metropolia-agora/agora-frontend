@@ -1,3 +1,22 @@
 /* ----- SETTINGS STYLES ----- */
 
 .settings-page {}
+
+#success {
+    background-color: seagreen;
+    color: #eeeeee;
+    padding: 1%;
+}
+
+.hidden {
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 1s linear;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 1s linear;
+    visibility: visible;
+}
+

@@ -32,6 +32,8 @@ formChangeUsername.addEventListener('submit', async (event) => {
       alert(response.message);
       inputUsername.value = '';
    } else {
+      successNotification.classList.add('visible');
+      setTimeout( () => { successNotification.classList.remove('visible') }, 1000);
    }
 });
 
