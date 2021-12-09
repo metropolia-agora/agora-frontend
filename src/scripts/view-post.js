@@ -30,8 +30,8 @@ if (!data.ok) {
   if (user) {
 
     // Show new comment form to signed-in users
-    const newCommentElement = document.querySelector('#new-comment-container');
-    newCommentElement.classList.remove('hidden');
+    const mainElement = document.querySelector('main');
+    mainElement.classList.remove('new-comment-hidden');
 
     // Get input and button elements
     const commentButton = document.querySelector('#new-comment-button');

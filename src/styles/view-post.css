@@ -16,6 +16,10 @@
   margin-bottom: 64px;
 }
 
+.new-comment-hidden > .view-post-content > #comment-holder {
+  margin-bottom: 12px;
+}
+
 /* ----- NEW COMMENT ----- */
 
 #new-comment-container {
@@ -31,7 +35,7 @@
   border-top: 1px solid #eeeeee;
 }
 
-#new-comment-container.hidden {
+.new-comment-hidden > #new-comment-container {
   display: none;
 }
 
