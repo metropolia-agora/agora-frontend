@@ -37,3 +37,37 @@ formChangeUsername.addEventListener('submit', async (event) => {
    }
 });
 
+// CHANGING PASSWORD
+formChangePassword.addEventListener('submit', async (event) => {
+   event.preventDefault();
+
+   const currentPassword = inputCurrentPassword.value;
+   const newPassword = inputNewPassword.value;
+   const doesMatch = inputNewPasswordMatch.value;
+
+   // If passwords match, make api call
+   // If not, show an error
+   if (newPassword === doesMatch) {
+      const response = await api.post(`/api/users/${user.id}/password`, { newPassword, currentPassword });
+
+      // If current password is incorrect, show an error
+      // If all is good, show timed notification
+      if (!response.ok) {
+         alert(response.message);
+      } else {
+         successNotification.classList.add('visible');
+         setTimeout( () => { successNotification.classList.remove('visible') }, 3000);
+      }
+
+      inputCurrentPassword.value = '';
+      inputNewPassword.value = '';
+      inputNewPasswordMatch.value = '';
+
+   } else {
+      alert('Passwords do not match.');
+      inputCurrentPassword.value = '';
+      inputNewPassword.value = '';
+      inputNewPasswordMatch.value = '';
+   }
+});
+
