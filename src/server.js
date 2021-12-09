@@ -51,5 +51,15 @@ app.get('/new', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages/new-post.html'));
 });
 
+// 404 not found page
+app.get('/404', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages/404.html'));
+});
+
+// Catch-all wildcard redirection to 404 page
+app.get('*', (req, res) => {
+  res.redirect('/404');
+});
+
 // Start listening to requests
 app.listen(port, () => console.log(`Server listening on port ${port}.`));

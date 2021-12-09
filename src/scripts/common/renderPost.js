@@ -79,20 +79,32 @@ const onPressUser = (userId) => (event) => {
 // Handle pressing the post and navigating to the detailed post view
 const onPressPost = (postId) => (event) => {
   event.stopImmediatePropagation();
-  window.location.assign(`/post?id=${postId}`);
+  const currentURL = window.location.pathname + window.location.search;
+  const viewPostURL = `/post?id=${postId}`;
+  if (currentURL !== viewPostURL) {
+    window.location.assign(viewPostURL);
+  }
 };
 
 // Handle pressing the comment button and navigating to the detailed post view's comment section
 const onPressComment = (postId) => (event) => {
   event.stopImmediatePropagation();
-  window.location.assign(`/post?id=${postId}#comments`);
+  const currentURL = window.location.pathname + window.location.search;
+  const viewPostURL = `/post?id=${postId}`;
+  if (currentURL !== viewPostURL) {
+    const commentURL = `/post?id=${postId}#comments`;
+    window.location.assign(commentURL);
+  } else {
+    const commentInput = document.querySelector('#new-comment-input');
+    commentInput.focus();
+  }
 };
 
-// Render post into parent element
+// Render a post into parent element
 export const renderPost = (parent, post, user) => {
 
   // Container
-  const container = ElementHelper.create('div').setId(`post_${post.id}`).setOnClick(onPressPost(post.id)).setClass('post-container');
+  const container = ElementHelper.create('div').setId(`post_${post.id}`).setClass('post-container');
 
   // Header
   const header = ElementHelper.create('div').setClass('post-header').setParent(container);
@@ -107,7 +119,7 @@ export const renderPost = (parent, post, user) => {
   ElementHelper.create('div').setClass('post-header-timestamp').setText(formattedDate).setParent(header);
 
   // Content
-  const content = ElementHelper.create('div').setClass(`post-content`).setParent(container);
+  const content = ElementHelper.create('div').setClass(`post-content`).setOnClick(onPressPost(post.id)).setParent(container);
   if (post.content) ElementHelper.create('p').setText(post.content).setParent(content);
   if (post.filename) ElementHelper.create('img').setSrc(post.filename).setParent(content);
 
@@ -138,5 +150,9 @@ export const renderPost = (parent, post, user) => {
   }
 
   // Attach post to parent
-  return parent.appendChild(container.htmlElement);
+  if (parent) {
+    parent.appendChild(container.htmlElement);
+  } else {
+    return container.htmlElement;
+  }
 };
