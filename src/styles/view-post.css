@@ -9,25 +9,30 @@
 }
 
 .view-post-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
   overflow-y: auto;
 }
 
 .view-post-content > #comment-holder {
-  margin-bottom: 12px;
+  margin-bottom: 64px;
 }
 
 /* ----- NEW COMMENT ----- */
 
 #new-comment-container {
+  width: 100%;
+  height: 54px;
+  position: fixed;
+  bottom: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 10px 16px;
   background-color: #ffffff;
   border-top: 1px solid #eeeeee;
+}
+
+#new-comment-container.hidden {
+  display: none;
 }
 
 #new-comment-profile {
@@ -73,10 +78,6 @@
   padding: 10px 16px;
   border-top: 1px solid #eeeeee;
   background-color: #ffffff;
-}
-
-.comment-container.hidden {
-  display: none;
 }
 
 /* ----- COMMENT PROFILE ----- */
