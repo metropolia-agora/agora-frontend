@@ -24,6 +24,10 @@
   border-top: 1px solid #dddddd;
 }
 
+#mobile-nav.hidden {
+  display: none;
+}
+
 #mobile-nav > img {
   width: 44px;
   height: 44px;
