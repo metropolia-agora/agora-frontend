@@ -5,18 +5,25 @@ import {ElementHelper} from "./common/ElementHelper";
 
 // Authentication check
 const user = await authentication.check();
-console.log('Signed in as', user || 'anon');
 
 // Load the data of the user whose profile is being viewed
 
   const id = new URL(window.location).searchParams.get('id');
   const data = await api.get(`/api/users/${id}`);
-  if (!data.ok) {
+if (!data.ok) {
     window.location.replace('/404');
   } else {
     const viewing = data.user;
-    const headerTitle = document.querySelector('header h1');
+    const headerTitle = document.querySelector('.user-name');
     headerTitle.textContent = viewing.username;
+
+// Profile picture
+    const profilePicture = document.querySelector('.profile-picture');
+    if (viewing.filename) {
+        profilePicture.appendChild(ElementHelper.create('img').setSrc(viewing.filename).htmlElement);
+    } else {
+        profilePicture.appendChild( ElementHelper.create('img').setSrc('assets/user.svg').htmlElement);
+    }
 
 
 // Get post list holder component
@@ -42,12 +49,5 @@ console.log('Signed in as', user || 'anon');
 // Fetch posts from the user once when opening the app
     await fetchPostsFromUser();
 
-// Profile picture
-    const profilePicture = document.querySelector('.profile-picture');
-    if (user.filename) {
-      ElementHelper.create('img').setSrc(user.filename).setParent(profilePicture);
-    } else {
-      ElementHelper.create('img').setClass('icon').setSrc('assets/user.svg').setParent(profilePicture);
-    }
-  }
+}
 
