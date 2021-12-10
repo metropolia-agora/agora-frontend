@@ -172,6 +172,21 @@ header > h1 {
   box-shadow: 0 1px 5px 0 #00000027;
 }
 
+.forms > textarea {
+  resize: none;
+  border: none;
+  color: #585858;
+  margin-top: 24px;
+  border-radius: 5px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 5px 0 #00000027;
+}
+
+.forms > label {
+  color: #585858;
+  margin-top: 24px;
+}
+
 .forms > button {
   margin-top: 32px;
   border: none;
