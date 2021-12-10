@@ -87,7 +87,7 @@ formDeleteUser.addEventListener('submit', async (event) => {
    // Show a confirmation message asking if user is sure they want to delete their account
    // If user is sure, make an api call
    // If user is not sure, clear the input field
-   if (confirm('Are you sure you want to Delete?\nThis action cannot be reversed.') === true){
+   if (confirm('This action cannot be reversed.\nClick "OK" if you want to continue nevertheless.') === true){
       const response = await api.delete(`/api/users/${user.id}`, { password });
       console.log('response: ', response);
 
