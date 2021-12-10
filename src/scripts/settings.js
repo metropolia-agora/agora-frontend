@@ -20,7 +20,6 @@ const inputNewPasswordMatch = document.getElementById('field-newPasswordMatch');
 const inputDeleteUser = document.getElementById('field-password');
 const successNotification = document.getElementById('success');
 
-
 // LOGOUT
 document.getElementById('logout').addEventListener('click', () => {
    authentication.signout();
@@ -42,7 +41,7 @@ formChangeUsername.addEventListener('submit', async (event) => {
       alert(response.message);
    } else {
       successNotification.classList.add('visible');
-      setTimeout( () => { successNotification.classList.remove('visible') }, 1000);
+      setTimeout( () => { successNotification.classList.remove('visible') }, 1500);
       inputUsername.value = '';
    }
 });
@@ -68,7 +67,7 @@ formChangePassword.addEventListener('submit', async (event) => {
          alert(response.message);
       } else {
          successNotification.classList.add('visible');
-         setTimeout( () => { successNotification.classList.remove('visible') }, 3000);
+         setTimeout( () => { successNotification.classList.remove('visible') }, 1500);
          inputCurrentPassword.value = '';
          inputNewPassword.value = '';
          inputNewPasswordMatch.value = '';

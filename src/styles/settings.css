@@ -10,13 +10,13 @@ header > h1 {
     color: #017ef8;
 }
 
-#logout {
+header > input {
     right: 0;
+    padding: 10px 8px;
     position: absolute;
-    top: 0;
 }
 
-#success {
+span {
     align-items: center;
     background-color: seagreen;
     border-radius: 5px;

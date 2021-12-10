@@ -17,11 +17,10 @@
 
   <header>
     <h1>Settings</h1>
+    <input id="logout" type="image" src="assets/logout.svg" alt="Logout">
   </header>
 
   <main class="settings-page">
-    <input id="logout" type="image" src="assets/logout.svg" alt="Logout">
-
     <span class="hidden" id="success">Saved</span>
 
     <form class="forms" id="change-username">
@@ -33,7 +32,7 @@
     <form class="forms" id="change-password">
       <h2>Change password</h2>
       <input id="field-currentPassword" type="password" placeholder="Current password" required>
-      <input id="field-newPassword" type="password" pattern="(?=.*[A-Z]).{8,}" placeholder="New password" required>
+      <input id="field-newPassword" type="password" pattern="(?=.*[A-Z]).{8,255}" placeholder="New password" required>
       <input id="field-newPasswordMatch" type="password" placeholder="Confirm new password" required>
       <button type="submit">Save changes</button>
     </form>
