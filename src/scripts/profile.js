@@ -31,7 +31,6 @@ console.log('Signed in as', user || 'anon');
     const fetchPostsFromUser = async () => {
       isLoading = true;
       const data = await api.get(`/api/users/${id}/posts`);
-      console.log('api working')
       if (!data.posts?.length)return;
       data.posts.forEach(post => renderPost(postsHolder, post, user));
       const lastPost = data.posts[data.posts.length - 1];
