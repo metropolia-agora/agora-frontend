@@ -4,9 +4,10 @@ import { api } from "./common/api";
 // Authentication check
 const user = await authentication.check();
 
-/*if (!user) {
+// Redirecting user to home if not logged in
+if (!user) {
     window.location.assign('/');
-}*/
+}
 
 // Select html elements
 const formChangeUsername = document.getElementById('change-username');
