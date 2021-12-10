@@ -29,22 +29,29 @@ document.getElementById('logout').addEventListener('click', () => {
 formChangeUsername.addEventListener('submit', async (event) => {
    event.preventDefault();
 
+   // Get input field value
    const username = inputUsername.value;
+
+   // Make an api call
    const response = await api.post(`/api/users/${user.id}/username`, { username });
 
+   // If username is already in use, show an error
+   // If all is good, show a timed success notification and clear the input field
    if (!response.ok) {
       alert(response.message);
-      inputUsername.value = '';
    } else {
       successNotification.classList.add('visible');
       setTimeout( () => { successNotification.classList.remove('visible') }, 1000);
+      inputUsername.value = '';
    }
 });
 
-// CHANGING PASSWORD
+// CHANGE PASSWORD
+// Read values from input fields and check if passwords match when button clicked
 formChangePassword.addEventListener('submit', async (event) => {
    event.preventDefault();
 
+   // Get input field values
    const currentPassword = inputCurrentPassword.value;
    const newPassword = inputNewPassword.value;
    const doesMatch = inputNewPasswordMatch.value;
@@ -55,13 +62,20 @@ formChangePassword.addEventListener('submit', async (event) => {
       const response = await api.post(`/api/users/${user.id}/password`, { newPassword, currentPassword });
 
       // If current password is incorrect, show an error
-      // If all is good, show timed notification
+      // If all is good, show a timed success notification and clear the input fields
       if (!response.ok) {
          alert(response.message);
       } else {
          successNotification.classList.add('visible');
          setTimeout( () => { successNotification.classList.remove('visible') }, 3000);
+         inputCurrentPassword.value = '';
+         inputNewPassword.value = '';
+         inputNewPasswordMatch.value = '';
       }
+   } else {
+      alert('Passwords do not match.');
+   }
+});
 
 // DELETE USER
 formDeleteUser.addEventListener('submit', async (event) => {

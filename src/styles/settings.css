@@ -1,6 +1,14 @@
 /* ----- SETTINGS STYLES ----- */
 
-.settings-page {}
+.settings-page {
+    background-color: #ffffff;
+    flex: 1;
+    padding: 16px 32px;
+}
+
+header > h1 {
+    color: #017ef8;
+}
 
 #logout {
     right: 0;
@@ -9,9 +17,18 @@
 }
 
 #success {
+    align-items: center;
     background-color: seagreen;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px 0 darkgreen;
     color: #eeeeee;
-    padding: 1%;
+    display: flex;
+    justify-self: center;
+    margin: auto;
+    padding: 2%;
+    position: sticky;
+    top: 1%;
+    width: fit-content;
 }
 
 .hidden {
