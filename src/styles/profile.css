@@ -4,6 +4,46 @@
     flex: 1;
     background-color: #eeeeee;
 }
-.profile-posts{
+
+.profile-picture {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+}
+
+.profile-posts {
     margin-bottom: 48px;
 }
+h1{
+    align-content: center;
+}
+
+
+/* ----- MOBILE NAVIGATION ----- */
+
+#mobile-nav {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #dddddd;
+}
+
+#mobile-nav > img {
+    width: 44px;
+    height: 44px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-out;
+}
+
+#mobile-nav > img:hover, #mobile-nav > img:active {
+    background-color: #eeeeee;
+}
+
