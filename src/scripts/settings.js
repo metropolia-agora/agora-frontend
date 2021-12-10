@@ -17,10 +17,15 @@ const inputCurrentPassword = document.getElementById('field-currentPassword');
 const inputNewPassword = document.getElementById('field-newPassword');
 const inputNewPasswordMatch = document.getElementById('field-newPasswordMatch');
 const inputDeleteUser = document.getElementById('field-password');
-const logoutButton = document.getElementById('logout');
 const successNotification = document.getElementById('success');
 
-// CHANGING USERNAME
+
+// LOGOUT
+document.getElementById('logout').addEventListener('click', () => {
+   authentication.signout();
+});
+
+// CHANGE USERNAME
 formChangeUsername.addEventListener('submit', async (event) => {
    event.preventDefault();
 
@@ -58,14 +63,29 @@ formChangePassword.addEventListener('submit', async (event) => {
          setTimeout( () => { successNotification.classList.remove('visible') }, 3000);
       }
 
-      inputCurrentPassword.value = '';
-      inputNewPassword.value = '';
-      inputNewPasswordMatch.value = '';
+// DELETE USER
+formDeleteUser.addEventListener('submit', async (event) => {
+   event.preventDefault();
 
+   // Get input field value
+   const password = inputDeleteUser.value;
+
+   // Show a confirmation message asking if user is sure they want to delete their account
+   // If user is sure, make an api call
+   // If user is not sure, clear the input field
+   if (confirm('Are you sure you want to Delete?\nThis action cannot be reversed.') === true){
+      const response = await api.delete(`/api/users/${user.id}`, { password });
+      console.log('response: ', response);
+
+      // If password is incorrect, show an error
+      // If all is good, show a notification and relocate user back to home
+      if (!response.ok) {
+         alert(response.message);
+      } else {
+         alert('Account deleted.')
+         window.location.assign('/');
+      }
    } else {
-      alert('Passwords do not match.');
-      inputCurrentPassword.value = '';
-      inputNewPassword.value = '';
-      inputNewPasswordMatch.value = '';
+      inputDeleteUser.value = '';
    }
 });

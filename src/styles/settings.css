@@ -2,6 +2,12 @@
 
 .settings-page {}
 
+#logout {
+    right: 0;
+    position: absolute;
+    top: 0;
+}
+
 #success {
     background-color: seagreen;
     color: #eeeeee;
@@ -20,3 +26,8 @@
     visibility: visible;
 }
 
+#deleteButton {
+    background-color: darkred;
+    box-shadow: 0 0 5px 0 #660000;
+    font-weight: bold;
+}
