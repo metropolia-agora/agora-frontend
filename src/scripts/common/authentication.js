@@ -32,7 +32,7 @@ const signin = (token, userId) => {
 const signout = () => {
   storage.setToken(null);
   storage.setUserId(null);
-  window.location.assign('/');
+  window.location.replace('/');
 };
 
 // Authentication utility functions
