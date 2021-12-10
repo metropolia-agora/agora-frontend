@@ -6,6 +6,7 @@
   outline: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  user-select: none;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  background-color: #eeeeee;
 }
 
 .icon {
@@ -25,6 +27,15 @@ body {
 header {
   display: flex;
   align-items: center;
+  padding: 0 8px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+header > img {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
 }
 
 header > h1 {
@@ -32,37 +43,8 @@ header > h1 {
   font-weight: 700;
   letter-spacing: 1px;
   color: #656565;
-  padding: 10px 16px;
+  padding: 10px 8px;
   margin-right: auto;
-}
-
-/* ----- MOBILE NAVIGATION ----- */
-
-#mobile-nav {
-  width: 100%;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  background-color: #ffffff;
-  border-top: 1px solid #dddddd;
-  box-shadow: -1px 0 5px 0 #0000001c;
-}
-
-#mobile-nav > img {
-  width: 44px;
-  height: 44px;
-  margin: 8px;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background-color 0.2s ease-out;
-}
-
-#mobile-nav > img:hover, #mobile-nav > img:active {
-  background-color: #eeeeee;
 }
 
 /* ----- POST - CONTAINER ----- */
@@ -72,7 +54,7 @@ header > h1 {
   flex-direction: column;
   margin-top: 12px;
   background-color: #fefefe;
-  padding: 14px 18px;
+  padding: 14px 16px;
 }
 
 /* ----- POST - HEADER ----- */
@@ -119,7 +101,7 @@ header > h1 {
 .post-content {
   display: flex;
   flex-direction: column;
-  padding: 14px 0;
+  margin: 14px 0;
 }
 
 .post-content > p {
@@ -164,4 +146,58 @@ header > h1 {
 .post-actions > .remove {
   margin-left: auto;
   margin-right: 0;
+}
+
+/* ----- FORMS ----- */
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+}
+
+.forms > h2 {
+  font-size: 20px;
+  color: #585858;
+  font-weight: 600;
+}
+
+.forms > input {
+  color: #585858;
+  padding: 16px;
+  font-size: 14px;
+  margin-top: 24px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 1px 5px 0 #00000027;
+}
+
+.forms > button {
+  margin-top: 32px;
+  border: none;
+  padding: 16px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #017ef8;
+  box-shadow: 0 0 5px 0 #017ef869;
+  transition: background-color 0.1s;
+}
+
+.forms > button:active {
+  background-color: #0866c9;
+  box-shadow: 0 0 5px 0 #0866c969;
+}
+
+.forms > p {
+  font-size: 14px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.forms > p > a {
+  color: #017ef8;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }

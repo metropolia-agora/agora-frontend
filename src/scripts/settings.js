@@ -3,7 +3,6 @@ import { api } from "./common/api";
 
 // Authentication check
 const user = await authentication.check();
-console.log('Signed in as', user || 'anon');
 
 /*if (!user) {
     window.location.assign('/');
@@ -70,4 +69,3 @@ formChangePassword.addEventListener('submit', async (event) => {
       inputNewPasswordMatch.value = '';
    }
 });
-

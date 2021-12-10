@@ -10,7 +10,7 @@ const executeApiCall = async (method, path, body) => {
   const headers = { 'Content-Type': 'application/json', ...authorization };
   const response = await fetch(BASE_URL + path, { method, body: JSON.stringify(body), headers });
   return response.json();
-}
+};
 
 // API utility functions
 export const api = {

@@ -1,0 +1,74 @@
+/* ----- WELCOME STYLES ----- */
+
+.welcome-page {
+  flex: 1;
+  padding: 16px 32px;
+  background-color: #ffffff;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  padding: 64px 0;
+}
+
+/* ----- WELCOME TEXTS ----- */
+
+.welcome-container > h1 {
+  font-size: 20px;
+  color: #585858;
+  font-weight: 600;
+  text-align: center;
+}
+
+.welcome-container > h1 > span {
+  color: #017ef8;
+}
+
+.welcome-container > p {
+  font-size: 14px;
+  color: #585858;
+  font-weight: 400;
+  text-align: center;
+  padding: 48px 0;
+}
+
+/* ----- OUTLINE BUTTONS ----- */
+
+.welcome-container > button {
+  padding: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  margin-bottom: 32px;
+  transition: background-color 0.1s;
+}
+
+/* ----- PRIMARY OUTLINE BUTTON ----- */
+
+.welcome-container > button.primary {
+  color: #017ef8;
+  background-color: #ffffff;
+  border: 2px solid #017ef8;
+  box-shadow: 0 0 5px 0 #017ef826;
+}
+
+.welcome-container > button.primary:active {
+  color: #ffffff;
+  background-color: #017ef8;
+}
+
+/* ----- SECONDARY OUTLINE BUTTON ----- */
+
+.welcome-container > button.secondary {
+  color: #585858;
+  background-color: #ffffff;
+  border: 2px solid #585858;
+  box-shadow: 0 0 5px 0 #58585849;
+}
+
+.welcome-container > button.secondary:active {
+  color: #ffffff;
+  background-color: #585858;
+}

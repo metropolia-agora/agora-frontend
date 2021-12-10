@@ -1,7 +1,10 @@
-// Import dependencies
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import url from 'url';
+
+// Set __dirname variable
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
 // Create express app
 const app = express();
@@ -19,6 +22,11 @@ app.options('*', cors());
 // Home page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages/home.html'));
+});
+
+// Welcome page
+app.get('/welcome', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages/welcome.html'));
 });
 
 // Sign in page
@@ -49,6 +57,16 @@ app.get('/post', (req, res) => {
 // New post page
 app.get('/new', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages/new-post.html'));
+});
+
+// 404 not found page
+app.get('/404', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages/404.html'));
+});
+
+// Catch-all wildcard redirection to 404 page
+app.get('*', (req, res) => {
+  res.redirect('/404');
 });
 
 // Start listening to requests
