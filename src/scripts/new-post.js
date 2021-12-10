@@ -14,8 +14,16 @@ form.addEventListener('submit', async (event) => {
   if (content.value) body.append('content', content.value);
   if (file.files.length > 0) body.append('file', file.files[0]);
 
+  if (body.has('file')) {
+    const file = body.get('file');
+    if (file.size >= 10485760) {
+      window.alert('The file is too large. Maximum 10MB.');
+      return;
+    }
+  }
+
   // Upload new post
-  if (body.get('content') || body.get('file')) {
+  if (body.has('content') || body.has('file')) {
     const response = await api.post('/api/posts', body);
     if (!response.ok) {
       window.alert('An unexpected error has occured.');
