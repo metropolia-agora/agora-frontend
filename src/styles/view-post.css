@@ -1,3 +1,139 @@
 /* ----- VIEW POST STYLES ----- */
 
-.view-post-page {}
+.view-post-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #eeeeee;
+  overflow: hidden;
+}
+
+.view-post-content {
+  overflow-y: auto;
+}
+
+.view-post-content > #comment-holder {
+  margin-bottom: 64px;
+}
+
+.new-comment-hidden > .view-post-content > #comment-holder {
+  margin-bottom: 12px;
+}
+
+/* ----- NEW COMMENT ----- */
+
+#new-comment-container {
+  width: 100%;
+  height: 54px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #ffffff;
+  border-top: 1px solid #eeeeee;
+}
+
+.new-comment-hidden > #new-comment-container {
+  display: none;
+}
+
+#new-comment-profile {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+#new-comment-profile > img:not(.icon) {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+#new-comment-container > input {
+  flex: 1;
+  border: none;
+  padding: 0 16px;
+}
+
+#new-comment-container > button {
+  font-size: 14px;
+  color: #656565;
+  border: none;
+  background-color: transparent;
+}
+
+#new-comment-container > button.disabled {
+  color: #eeeeee;
+}
+
+/* ----- COMMENT CONTAINER ----- */
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 16px;
+  border-top: 1px solid #eeeeee;
+  background-color: #ffffff;
+}
+
+/* ----- COMMENT PROFILE ----- */
+
+.comment-profile {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+.comment-profile > img:not(.icon) {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ----- COMMENT CONTENT ----- */
+
+.comment-content {
+  flex: 1;
+  font-size: 14px;
+  padding: 0 16px;
+}
+
+.comment-content > p {
+  display: inline;
+}
+
+.comment-content > p:first-child {
+  font-weight: 600;
+  padding-right: 4px;
+}
+
+/* ----- COMMENT ACTIONS ----- */
+
+.comment-actions {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-actions > img {
+  width: 32px;
+  height: 32px;
+  padding: 0 7px;
+  border-radius: 16px;
+  border: 1px solid #eeeeee;
+}

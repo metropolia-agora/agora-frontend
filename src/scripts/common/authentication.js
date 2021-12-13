@@ -6,12 +6,14 @@ const check = async () => {
   const token = storage.getToken();
   const userId = storage.getUserId();
   if (!token || !userId) {
-    storage.clear();
+    storage.setToken(null);
+    storage.setUserId(null);
     return null;
   } else {
     const data = await api.get(`/api/users/${userId}`);
     if (!data.ok) {
-      storage.clear();
+      storage.setToken(null);
+      storage.setUserId(null);
       return null;
     } else {
       return data.user;
@@ -23,13 +25,14 @@ const check = async () => {
 const signin = (token, userId) => {
   storage.setToken(token);
   storage.setUserId(userId);
-  window.location.assign('/');
+  window.location.replace('/');
 };
 
 // Clear the authentication credentials and sign the user out
 const signout = () => {
-  storage.clear();
-  window.location.assign('/');
+  storage.setToken(null);
+  storage.setUserId(null);
+  window.location.replace('/');
 };
 
 // Authentication utility functions

@@ -5,6 +5,22 @@ import { renderPost } from './common/renderPost';
 // Authentication check (User or null)
 const user = await authentication.check();
 
+// Pick navigation bar elements
+const navHome = document.querySelector('#mobile-nav-home');
+const navNew = document.querySelector('#mobile-nav-new');
+const navProfile = document.querySelector('#mobile-nav-profile');
+
+// Handle navigation bar clicks
+navHome.addEventListener('click', () => window.location.assign('/'));
+navProfile.addEventListener('click', () => window.location.assign(user ? '/settings' : '/signin'));
+navNew.addEventListener('click', () => {
+  if (user) {
+    window.location.assign('/new');
+  } else if (window.confirm('You need to sign in to be able to do this. Do you want to sign in now?')) {
+    window.location.assign('/signin');
+  }
+});
+
 // Get post list holder component
 const postsHolder = document.querySelector('.home-posts');
 

@@ -7,21 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="robots" content="noindex">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://unpkg.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   <link href="styles/common.css" rel="stylesheet" type="text/css">
   <link href="styles/settings.css" rel="stylesheet" type="text/css">
-  <script src="https://unpkg.com/moment@2.29.1/min/moment.min.js" crossorigin="anonymous"></script>
+  <script src="scripts/common/checkOnboarding.js"></script>
   <script type="module" defer src="scripts/settings.js"></script>
 </head>
 <body>
 
   <header>
+    <img src="assets/back.svg" alt="Go back" onclick="window.history.back()">
     <h1>Settings</h1>
+    <input id="logout" type="image" src="assets/logout.svg" alt="Logout">
   </header>
 
   <main class="settings-page">
-    <!-- CONTENT GOES HERE -->
+    <span class="hidden" id="success">Saved</span>
+
+    <form class="forms" id="change-username">
+      <h2>Change username</h2>
+      <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" required>
+      <button type="submit">Save changes</button>
+    </form>
+
+    <form class="forms" id="change-password">
+      <h2>Change password</h2>
+      <input id="field-currentPassword" type="password" placeholder="Current password" required>
+      <input id="field-newPassword" type="password" pattern="(?=.*[A-Z]).{8,255}" placeholder="New password" required>
+      <input id="field-newPasswordMatch" type="password" placeholder="Confirm new password" required>
+      <button type="submit">Save changes</button>
+    </form>
+
+    <form class="forms" id="delete-user">
+      <h2>Delete account</h2>
+      <input id="field-password" type="password" placeholder="Password" required>
+      <button id="deleteButton" type="submit">Delete</button>
+    </form>
   </main>
 
 </body>
