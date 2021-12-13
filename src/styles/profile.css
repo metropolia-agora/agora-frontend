@@ -29,6 +29,22 @@
     margin-bottom: 48px;
 }
 
+#settings-button {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    transition: background-color 0.1s;
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    margin: 25px auto;
+    left: 46%;
+
+
+}
+
 /* ----- MOBILE NAVIGATION ----- */
 
 #mobile-nav {

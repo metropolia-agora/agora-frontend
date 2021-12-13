@@ -25,7 +25,6 @@ if (!data.ok) {
         profilePicture.appendChild( ElementHelper.create('img').setSrc('assets/user.svg').htmlElement);
     }
 
-
 // Get post list holder component
     const postsHolder = document.querySelector('.profile-posts');
 
@@ -48,6 +47,17 @@ if (!data.ok) {
 
 // Fetch posts from the user once when opening the app
     await fetchPostsFromUser();
+
+// Setting button
+  document.getElementById("settings-button").addEventListener('click', () => window.location.assign('/settings'));
+  if(user === viewing) {
+      // clock is visible. hide it
+    document.getElementById("settings-button").style.display = 'block';
+      }
+    else {
+    document.getElementById("settings-button").style.display = 'none';
+  }
+
 
 }
 
