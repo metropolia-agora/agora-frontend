@@ -23,7 +23,10 @@ const inputCurrentPassword = document.getElementById('field-currentPassword');
 const inputNewPassword = document.getElementById('field-newPassword');
 const inputNewPasswordMatch = document.getElementById('field-newPasswordMatch');
 const inputDeleteUser = document.getElementById('field-password');
-const successNotification = document.getElementById('success');
+const successNotification = document.getElementById('saved');
+
+// Pre-fill username input with current username
+inputUsername.value = currentUser.username;
 
 // CHANGE USERNAME
 formChangeUsername.addEventListener('submit', async (event) => {
@@ -43,8 +46,7 @@ formChangeUsername.addEventListener('submit', async (event) => {
     successNotification.classList.add('visible');
     setTimeout( () => {
       successNotification.classList.remove('visible');
-    }, 1500);
-    inputUsername.value = '';
+    }, 3000);
   }
 });
 
@@ -71,7 +73,7 @@ formChangePassword.addEventListener('submit', async (event) => {
       successNotification.classList.add('visible');
       setTimeout( () => {
         successNotification.classList.remove('visible');
-      }, 1500);
+      }, 3000);
       inputCurrentPassword.value = '';
       inputNewPassword.value = '';
       inputNewPasswordMatch.value = '';
