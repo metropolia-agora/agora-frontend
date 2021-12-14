@@ -48,6 +48,37 @@ header > h1 {
 }
 
 /* ----- POST - CONTAINER ----- */
+@media only screen and (min-width: 639px) {
+.post-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    padding: 14px 16px;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: lightgray;
+    flex-flow: column wrap;
+    margin: 1%;
+    flex-grow: 1;
+    width: 25%;
+}
+}
+
+@media only screen and (min-width: 640px) and (max-width: 759px) { 
+  .post-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    padding: 14px 16px;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: lightgray;
+    flex-flow: column wrap;
+    margin: 1%;
+    flex-grow: 1;
+    width: 50%;
+  }
+}
 
 .post-container {
   display: flex;

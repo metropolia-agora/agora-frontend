@@ -12,7 +12,7 @@ const navProfile = document.querySelector('#mobile-nav-profile');
 
 // Handle navigation bar clicks
 navHome.addEventListener('click', () => window.location.assign('/'));
-navProfile.addEventListener('click', () => window.location.assign(user ? '/settings' : '/signin'));
+navProfile.addEventListener('click', () => window.location.assign(user ? '/profile' : '/signin'));
 navNew.addEventListener('click', () => {
   if (user) {
     window.location.assign('/new');

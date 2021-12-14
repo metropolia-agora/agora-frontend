@@ -6,6 +6,11 @@ import {ElementHelper} from "./common/ElementHelper";
 // Authentication check
 const user = await authentication.check();
 
+// Redirecting user to home if user not found
+if (!user) {
+  window.location.assign('/');
+}
+
 // Load the data of the user whose profile is being viewed
 
   const id = new URL(window.location).searchParams.get('id');

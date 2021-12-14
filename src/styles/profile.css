@@ -25,6 +25,15 @@
     color: #656565;
 }
 
+@media only screen and (min-width: 600px) {
+.profile-posts {
+        margin-bottom: 48px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 .profile-posts {
     margin-bottom: 48px;
 }

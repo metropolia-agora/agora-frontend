@@ -7,8 +7,18 @@
 
 .home-posts {
   margin-bottom: 48px;
+
 }
 
+@media only screen and (min-width: 600px) {
+.home-posts {
+  margin-bottom: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+}
 /* ----- MOBILE NAVIGATION ----- */
 
 #mobile-nav {

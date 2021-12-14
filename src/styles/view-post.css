@@ -6,6 +6,16 @@
   flex: 1;
   background-color: #eeeeee;
   overflow: hidden;
+  width: auto;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  background-color: #fefefe;
+  width: auto;
+
 }
 
 .view-post-content {
