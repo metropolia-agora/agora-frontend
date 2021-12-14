@@ -3,13 +3,13 @@
 .settings-page {
   background-color: #ffffff;
   flex: 1;
-  padding: 16px 32px;
+  overflow-y: auto;
 }
 
-header > input {
-  right: 0;
-  padding: 10px 8px;
-  position: absolute;
+.settings-container {
+  padding: 16px 32px;
+  margin-bottom: 48px;
+  background-color: #ffffff;
 }
 
 span {
@@ -40,7 +40,7 @@ span {
 }
 
 #deleteButton {
-  background-color: darkred;
-  box-shadow: 0 0 5px 0 #660000;
+  background-color: #d70000;
+  box-shadow: 0 0 5px 0 #d70000B5;
   font-weight: bold;
 }

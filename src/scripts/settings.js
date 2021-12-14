@@ -1,5 +1,6 @@
-import { authentication } from './common/authentication';
 import { api } from './common/api';
+import { authentication } from './common/authentication';
+import { renderNavigationBar } from './common/renderNavigationBar.js';
 
 // Authentication check
 const currentUser = await authentication.check();
@@ -8,6 +9,10 @@ const currentUser = await authentication.check();
 if (!currentUser) {
   window.location.assign('/');
 }
+
+// Render navigation bar
+const navbar = document.querySelector('#navigation-bar');
+renderNavigationBar(navbar, currentUser);
 
 // Select html elements
 const formChangeUsername = document.getElementById('change-username');
@@ -19,11 +24,6 @@ const inputNewPassword = document.getElementById('field-newPassword');
 const inputNewPasswordMatch = document.getElementById('field-newPasswordMatch');
 const inputDeleteUser = document.getElementById('field-password');
 const successNotification = document.getElementById('success');
-
-// LOGOUT
-document.getElementById('logout').addEventListener('click', () => {
-  authentication.signout();
-});
 
 // CHANGE USERNAME
 formChangeUsername.addEventListener('submit', async (event) => {
