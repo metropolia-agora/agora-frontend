@@ -1,4 +1,13 @@
+import { authentication } from './common/authentication';
 import { api } from './common/api';
+
+// Authentication check
+const currentUser = await authentication.check();
+
+// Redirecting user to home if not logged in
+if (!currentUser) {
+  window.location.assign('/');
+}
 
 // Pick html elements
 const form = document.querySelector('#new-post');
@@ -14,6 +23,7 @@ form.addEventListener('submit', async (event) => {
   if (content.value) body.append('content', content.value);
   if (file.files.length > 0) body.append('file', file.files[0]);
 
+  // Check file size
   if (body.has('file')) {
     const file = body.get('file');
     if (file.size >= 10485760) {

@@ -2,10 +2,10 @@ import { authentication } from './common/authentication';
 import { api } from './common/api';
 
 // Authentication check
-const user = await authentication.check();
+const currentUser = await authentication.check();
 
 // Redirecting user to home if not logged in
-if (!user) {
+if (!currentUser) {
   window.location.assign('/');
 }
 
@@ -33,7 +33,7 @@ formChangeUsername.addEventListener('submit', async (event) => {
   const username = inputUsername.value;
 
   // Make an api call
-  const response = await api.post(`/api/users/${user.id}/username`, { username });
+  const response = await api.post(`/api/users/${currentUser.id}/username`, { username });
 
   // If username is already in use, show an error
   // If all is good, show a timed success notification and clear the input field
@@ -61,7 +61,7 @@ formChangePassword.addEventListener('submit', async (event) => {
   // If passwords match, make api call
   // If not, show an error
   if (newPassword === doesMatch) {
-    const response = await api.post(`/api/users/${user.id}/password`, { newPassword, currentPassword });
+    const response = await api.post(`/api/users/${currentUser.id}/password`, { newPassword, currentPassword });
 
     // If current password is incorrect, show an error
     // If all is good, show a timed success notification and clear the input fields
@@ -92,7 +92,7 @@ formDeleteUser.addEventListener('submit', async (event) => {
   // If user is sure, make an api call
   // If user is not sure, clear the input field
   if (confirm('This action cannot be reversed.\nClick "OK" if you want to continue nevertheless.') === true){
-    const response = await api.delete(`/api/users/${user.id}`, { password });
+    const response = await api.delete(`/api/users/${currentUser.id}`, { password });
     console.log('response: ', response);
 
     // If password is incorrect, show an error
