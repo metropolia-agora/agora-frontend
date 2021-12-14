@@ -24,6 +24,12 @@
     <div class="settings-container">
       <span id="saved">Changes made successfully!</span>
 
+      <form class="forms" id="change-picture">
+        <h2>Change profile picture</h2>
+        <input type="file" name="file" id="field-picture" accept="image/png, image/jpeg">
+        <button type="submit" id="submit-picture">Remove picture</button>
+      </form>
+
       <form class="forms" id="change-username">
         <h2>Change username</h2>
         <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" required>
