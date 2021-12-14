@@ -1,5 +1,6 @@
 import { authentication } from './common/authentication';
 import { api } from './common/api';
+import { renderNavigationBar } from './common/renderNavigationBar.js';
 
 // Authentication check
 const currentUser = await authentication.check();
@@ -8,6 +9,10 @@ const currentUser = await authentication.check();
 if (!currentUser) {
   window.location.assign('/');
 }
+
+// Render navigation bar
+const navbar = document.querySelector('#navigation-bar');
+renderNavigationBar(navbar, currentUser);
 
 // Pick html elements
 const form = document.querySelector('#new-post');
