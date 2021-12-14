@@ -22,6 +22,10 @@ body {
   height: 16px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* ----- HEADER ----- */
 
 header {
