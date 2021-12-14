@@ -2,9 +2,14 @@ import { api } from './common/api';
 import { authentication } from './common/authentication';
 import { renderPost } from './common/renderPost';
 import { renderProfilePicture } from './common/renderProfilePicture.js';
+import { renderNavigationBar } from './common/renderNavigationBar.js';
 
 // Authentication check
 const currentUser = await authentication.check();
+
+// Render navigation bar
+const navbar = document.querySelector('#navigation-bar');
+renderNavigationBar(navbar, currentUser);
 
 // Load the data of the user whose profile is being viewed
 const id = new URL(window.location).searchParams.get('id');
