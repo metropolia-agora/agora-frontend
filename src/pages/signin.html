@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   <link href="styles/common.css" rel="stylesheet" type="text/css">
   <link href="styles/signin.css" rel="stylesheet" type="text/css">
+  <script src="https://kit.fontawesome.com/6cd31f02df.js" crossorigin="anonymous"></script>
   <script src="scripts/common/checkOnboarding.js"></script>
   <script type="module" defer src="scripts/signin.js"></script>
 </head>
@@ -17,6 +18,14 @@
 
   <header>
     <h1>Agora</h1>
+    <nav id="top-menu">
+      <button id="menuButton" type="button"><i class="fas fa-bars"></i></button>
+      <ul class="menubar hidden">
+        <li>
+          <a href="/">Home</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main class="signin-page">
