@@ -12,7 +12,7 @@ const currentUser = await authentication.check();
 renderTopMenu(currentUser);
 
 // Render navigation bar
-const navbar = document.querySelector('#navigation-bar');
+const navbar = document.querySelector('#mobile-navigation-bar');
 renderNavigationBar(navbar, currentUser);
 
 // Load the data of the user whose profile is being viewed

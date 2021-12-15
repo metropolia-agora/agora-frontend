@@ -1,42 +1,61 @@
-/* ----- VIEW POST STYLES ----- */
+/* ----- VIEW POST PAGE STYLES ----- */
 
 .view-post-page {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: #eeeeee;
-  overflow: hidden;
-}
-
-.view-post-content {
   overflow-y: auto;
+  background-color: #eeeeee;
 }
 
-.view-post-content > #comment-holder {
-  margin-bottom: 64px;
+.view-post-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.new-comment-hidden > .view-post-content > #comment-holder {
-  margin-bottom: 12px;
+#comment-holder {
+  flex: 1;
+}
+
+@media only screen and (min-width: 768px) {
+  .view-post-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeeee;
+  }
+  .view-post-container {
+    flex: 0;
+    display: block;
+    width: 700px;
+    border-radius: 5px;
+    border: 1px solid #d3d3d3;
+    background-color: #ffffff;
+    margin: 32px;
+  }
+  .post-container {
+    margin: 8px;
+  }
+  #new-comment-container {
+    margin-top: 0 !important;
+    border-radius: 0 0 5px 5px;
+  }
 }
 
 /* ----- NEW COMMENT ----- */
 
 #new-comment-container {
   width: 100%;
-  height: 54px;
-  position: fixed;
-  bottom: 0;
   display: flex;
   flex-direction: row;
+  position: sticky;
+  bottom: 0;
   align-items: center;
+  margin-top: 12px;
   padding: 10px 16px;
   background-color: #ffffff;
   border-top: 1px solid #eeeeee;
-}
-
-.new-comment-hidden > #new-comment-container {
-  display: none;
 }
 
 #new-comment-profile {

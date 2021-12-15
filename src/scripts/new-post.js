@@ -15,7 +15,7 @@ if (!currentUser) {
 renderTopMenu(currentUser);
 
 // Render navigation bar
-const navbar = document.querySelector('#navigation-bar');
+const navbar = document.querySelector('#mobile-navigation-bar');
 renderNavigationBar(navbar, currentUser);
 
 // Pick html elements
