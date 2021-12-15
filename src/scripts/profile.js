@@ -8,7 +8,7 @@ import { renderNavigationBar } from './common/renderNavigationBar.js';
 const currentUser = await authentication.check();
 
 // Render navigation bar
-const navbar = document.querySelector('#navigation-bar');
+const navbar = document.querySelector('#mobile-navigation-bar');
 renderNavigationBar(navbar, currentUser);
 
 // Load the data of the user whose profile is being viewed

@@ -7,7 +7,7 @@ import { renderNavigationBar } from './common/renderNavigationBar.js';
 const currentUser = await authentication.check();
 
 // Render navigation bar
-const navbar = document.querySelector('#navigation-bar');
+const navbar = document.querySelector('#mobile-navigation-bar');
 renderNavigationBar(navbar, currentUser);
 
 // Get post list holder component
