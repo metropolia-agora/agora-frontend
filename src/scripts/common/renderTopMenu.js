@@ -36,7 +36,7 @@ export const renderTopMenu = (user) => {
         ul.appendChild(liProfile);
         ul.appendChild(liSettings);
         ul.appendChild(liLogout);
-        liProfile.appendChild(ElementHelper.create('a').setHref('/profile').setText('Profile').htmlElement);
+        liProfile.appendChild(ElementHelper.create('a').setHref(`/profile?id=${user.id}`).setText('Profile').htmlElement);
         liSettings.appendChild(ElementHelper.create('a').setHref('/settings').setText('Settings').htmlElement);
         liLogout.appendChild(ElementHelper.create('button').setClass('button').setId('logout').setOnClick(onPressLogout()).htmlElement);
 
