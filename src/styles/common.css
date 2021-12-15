@@ -59,20 +59,22 @@ header > nav button {
 .fa-bars {
   font-size: 5vw;
   padding: 1%;
-  position: relative;
 }
 
 header > nav > ul {
   align-items: center;
   background-color: rgba(221, 221, 221, 0.95);
-  display: flex;
   border-radius: 3px;
+  bottom: 0;
+  display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
+  left: 0;
   list-style: none;
-  position: absolute;
+  position: fixed;
   right: 0;
+  top: 0;
   width: 100vw;
   z-index: 1;
 }
