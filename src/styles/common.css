@@ -22,6 +22,10 @@ body {
   height: 16px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* ----- HEADER ----- */
 
 header {
@@ -45,6 +49,34 @@ header > h1 {
   color: #656565;
   padding: 10px 8px;
   margin-right: auto;
+}
+
+/* ----- NAVIGATION BAR ----- */
+
+#navigation-bar {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffffff;
+  border-top: 1px solid #dddddd;
+}
+
+#navigation-bar > img {
+  width: 44px;
+  height: 44px;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-out;
+}
+
+#navigation-bar > img:hover, #navigation-bar > img:active {
+  background-color: #eeeeee;
 }
 
 /* ----- POST - CONTAINER ----- */
