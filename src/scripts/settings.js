@@ -1,5 +1,6 @@
 import { authentication } from './common/authentication';
 import { api } from './common/api';
+import { renderTopMenu } from "./common/renderTopMenu";
 
 // Authentication check
 const user = await authentication.check();
@@ -8,6 +9,9 @@ const user = await authentication.check();
 if (!user) {
   window.location.assign('/');
 }
+
+// Render top menu (hamburger menu) content
+renderTopMenu(user);
 
 // Select html elements
 const formChangeUsername = document.getElementById('change-username');
