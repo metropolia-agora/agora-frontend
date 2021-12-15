@@ -1,25 +1,14 @@
 import { api } from './common/api';
 import { authentication } from './common/authentication';
 import { renderPost } from './common/renderPost';
+import { renderNavigationBar } from './common/renderNavigationBar.js';
 
-// Authentication check (User or null)
-const user = await authentication.check();
+// Authentication check
+const currentUser = await authentication.check();
 
-// Pick navigation bar elements
-const navHome = document.querySelector('#mobile-nav-home');
-const navNew = document.querySelector('#mobile-nav-new');
-const navProfile = document.querySelector('#mobile-nav-profile');
-
-// Handle navigation bar clicks
-navHome.addEventListener('click', () => window.location.assign('/'));
-navProfile.addEventListener('click', () => window.location.assign(user ? '/profile' : '/signin'));
-navNew.addEventListener('click', () => {
-  if (user) {
-    window.location.assign('/new');
-  } else if (window.confirm('You need to sign in to be able to do this. Do you want to sign in now?')) {
-    window.location.assign('/signin');
-  }
-});
+// Render navigation bar
+const navbar = document.querySelector('#navigation-bar');
+renderNavigationBar(navbar, currentUser);
 
 // Get post list holder component
 const postsHolder = document.querySelector('.home-posts');
@@ -34,7 +23,7 @@ const fetchPostsFromFeed = async () => {
   isLoading = true;
   const data = await api.get(`/api/feed/recent?lastDate=${lastDate}`);
   if (!data.posts?.length) return;
-  data.posts.forEach(post => renderPost(postsHolder, post, user));
+  data.posts.forEach(post => renderPost(postsHolder, post, currentUser));
   const lastPost = data.posts[data.posts.length - 1];
   lastDate = lastPost.createdAt;
   triggerElement = document.querySelector(`#post_${lastPost.id}`);

@@ -3,44 +3,45 @@
 .settings-page {
   background-color: #ffffff;
   flex: 1;
+  overflow-y: auto;
+}
+
+.settings-container {
   padding: 16px 32px;
+  margin-bottom: 48px;
+  background-color: #ffffff;
 }
 
-header > input {
-  right: 0;
-  padding: 10px 8px;
-  position: absolute;
-}
-
-span {
+#saved {
   align-items: center;
-  background-color: seagreen;
+  background-color: #2e8b57;
   border-radius: 5px;
-  box-shadow: 0 1px 5px 0 darkgreen;
-  color: #eeeeee;
+  box-shadow: 0 1px 5px 0 #2e8b579d;
+  color: #ffffff;
   display: flex;
   justify-self: center;
   margin: auto;
-  padding: 2%;
+  font-size: 16px;
   position: sticky;
   top: 1%;
   width: fit-content;
-}
-
-.hidden {
   opacity: 0;
-  transition: visibility 0s 1s, opacity 1s linear;
   visibility: hidden;
+  height: 0;
+  padding: 0;
+  transition: opacity 0.5s linear, padding 0s 0.5s, height 0s 0.5s, visibility 0s 0.5s;
 }
 
-.visible {
+#saved.visible {
+  height: 34px;
   opacity: 1;
-  transition: opacity 1s linear;
   visibility: visible;
+  padding: 6px 16px;
+  transition: opacity 0.5s linear, height 0s;
 }
 
 #deleteButton {
-  background-color: darkred;
-  box-shadow: 0 0 5px 0 #660000;
+  background-color: #d70000;
+  box-shadow: 0 0 5px 0 #d7000088;
   font-weight: bold;
 }
