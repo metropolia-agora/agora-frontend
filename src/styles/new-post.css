@@ -2,6 +2,11 @@
 
 .new-post-page {
   flex: 1;
-  padding: 16px 32px;
   background-color: #ffffff;
+  overflow-y: auto;
+}
+
+.new-post-form {
+  padding: 16px 32px;
+  margin-bottom: 48px;
 }

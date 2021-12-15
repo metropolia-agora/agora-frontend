@@ -43,7 +43,11 @@ export class ElementHelper {
   }
 
   setParent(parent) {
-    parent.htmlElement.appendChild(this.htmlElement);
+    if (parent instanceof ElementHelper) {
+      parent.htmlElement.appendChild(this.htmlElement);
+    } else if (parent instanceof HTMLElement) {
+      parent.appendChild(this.htmlElement);
+    }
     return this;
   }
 

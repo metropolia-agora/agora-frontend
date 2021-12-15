@@ -1,3 +1,71 @@
 /* ----- PROFILE STYLES ----- */
 
-.profile-page {}
+.profile-page {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 16px 16px;
+}
+
+.profile-posts {
+  margin-bottom: 48px;
+  background-color: #eeeeee;
+}
+
+/* ----- PROFILE PICTURE ----- */
+
+.profile-picture {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #eeeeee;
+}
+
+.profile-picture > img.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.profile-picture > img:not(.icon) {
+  width: 138px;
+  height: 138px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ----- PROFILE USERNAME AND ACTIONS ----- */
+
+.profile-username {
+  color: #656565;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 32px;
+}
+
+.profile-actions {
+  display: flex;
+  flex-direction: row;
+  margin-top: 32px;
+}
+
+.profile-actions > button {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border: none;
+  margin: 0 10px;
+  transition: background-color 0.1s;
+}
