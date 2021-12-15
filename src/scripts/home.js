@@ -34,7 +34,8 @@ const fetchPostsFromFeed = async () => {
 await fetchPostsFromFeed();
 
 // Fetch posts from feed when scrolling to the trigger element
-window.addEventListener('scroll', async () => {
+const page = document.querySelector('.home-page');
+page.addEventListener('scroll', async () => {
   const { top } = triggerElement.getBoundingClientRect();
   if (!isLoading && top <= window.innerHeight) await fetchPostsFromFeed();
 });
