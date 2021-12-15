@@ -1,4 +1,4 @@
-/* ----- PROFILE STYLES ----- */
+/* ----- PROFILE PAGE STYLES ----- */
 
 .profile-page {
   flex: 1;
@@ -11,20 +11,24 @@
   flex-direction: column;
   align-items: center;
   padding: 32px 16px 16px 16px;
-}
-
-@media only screen and (min-width: 600px) {
-.profile-posts {
-        margin-bottom: 48px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+  background-color: #ffffff;
 }
 
 .profile-posts {
   margin-bottom: 48px;
   background-color: #eeeeee;
+}
+
+@media only screen and (min-width: 768px) {
+  .profile-page {
+    background-color: #eeeeee;
+  }
+  .profile-posts {
+    display: grid;
+    padding: 16px;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  }
 }
 
 /* ----- PROFILE PICTURE ----- */
