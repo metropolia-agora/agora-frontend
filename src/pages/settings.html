@@ -18,31 +18,40 @@
   <header>
     <img src="assets/back.svg" alt="Go back" onclick="window.history.back()">
     <h1>Settings</h1>
-    <input id="logout" type="image" src="assets/logout.svg" alt="Logout">
   </header>
 
   <main class="settings-page">
-    <span class="hidden" id="success">Saved</span>
+    <div class="settings-container">
+      <span id="saved">Changes made successfully!</span>
 
-    <form class="forms" id="change-username">
-      <h2>Change username</h2>
-      <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" required>
-      <button type="submit">Save changes</button>
-    </form>
+      <form class="forms" id="change-picture">
+        <h2>Change profile picture</h2>
+        <input type="file" name="file" id="field-picture" accept="image/png, image/jpeg">
+        <button type="submit" id="submit-picture">Remove picture</button>
+      </form>
 
-    <form class="forms" id="change-password">
-      <h2>Change password</h2>
-      <input id="field-currentPassword" type="password" placeholder="Current password" required>
-      <input id="field-newPassword" type="password" pattern="(?=.*[A-Z]).{8,255}" placeholder="New password" required>
-      <input id="field-newPasswordMatch" type="password" placeholder="Confirm new password" required>
-      <button type="submit">Save changes</button>
-    </form>
+      <form class="forms" id="change-username">
+        <h2>Change username</h2>
+        <input id="field-username" type="text" pattern="[a-zA-Z0-9\-_.]{2,32}" placeholder="Username" required>
+        <button type="submit">Save changes</button>
+      </form>
 
-    <form class="forms" id="delete-user">
-      <h2>Delete account</h2>
-      <input id="field-password" type="password" placeholder="Password" required>
-      <button id="deleteButton" type="submit">Delete</button>
-    </form>
+      <form class="forms" id="change-password">
+        <h2>Change password</h2>
+        <input id="field-currentPassword" type="password" placeholder="Current password" required>
+        <input id="field-newPassword" type="password" pattern="(?=.*[A-Z]).{8,255}" placeholder="New password" required>
+        <input id="field-newPasswordMatch" type="password" placeholder="Confirm new password" required>
+        <button type="submit">Save changes</button>
+      </form>
+
+      <form class="forms" id="delete-user">
+        <h2>Delete account</h2>
+        <input id="field-password" type="password" placeholder="Password" required>
+        <button id="deleteButton" type="submit">Delete</button>
+      </form>
+    </div>
+
+    <nav id="navigation-bar"></nav>
   </main>
 
 </body>

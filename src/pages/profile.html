@@ -18,24 +18,22 @@
 <body>
 
   <header>
-    <h1>Agora</h1>
+    <img src="assets/back.svg" alt="Go back" onclick="window.history.back()">
+    <h1></h1>
   </header>
 
   <main class="profile-page">
-
-    <div class="profile-picture"></div>
-    <div class="user-name"></div>
-    <button id="settings-button" >Settings</button>
+    <div class="profile-container">
+      <div class="profile-picture"></div>
+      <div class="profile-username"></div>
+      <div class="profile-actions hidden">
+        <button id="profile-edit">Edit profile</button>
+        <button id="profile-signout">Sign out</button>
+      </div>
+    </div>
     <div class="profile-posts"></div>
-    <nav id="mobile-nav">
-      <img id="mobile-nav-home" src="assets/home.svg" alt="Home">
-      <img id="mobile-nav-new" src="assets/new.svg" alt="New post">
-      <img id="mobile-nav-profile" src="assets/user.svg" alt="Profile">
-
-    </nav>
+    <nav id="navigation-bar"></nav>
   </main>
-
-
 
 </body>
 </html>
