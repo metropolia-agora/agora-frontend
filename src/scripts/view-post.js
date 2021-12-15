@@ -32,8 +32,8 @@ if (!postDataResponse.ok) {
   if (currentUser) {
 
     // Show new comment form to signed-in users
-    const mainElement = document.querySelector('main');
-    mainElement.classList.remove('new-comment-hidden');
+    const newCommentContainer = document.querySelector('#new-comment-container');
+    newCommentContainer.classList.remove('hidden');
 
     // Get input and button elements
     const commentButton = document.querySelector('#new-comment-button');

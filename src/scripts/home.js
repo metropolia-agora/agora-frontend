@@ -7,11 +7,11 @@ import { renderNavigationBar } from './common/renderNavigationBar.js';
 const currentUser = await authentication.check();
 
 // Render navigation bar
-const navbar = document.querySelector('#navigation-bar');
+const navbar = document.querySelector('#mobile-navigation-bar');
 renderNavigationBar(navbar, currentUser);
 
 // Get post list holder component
-const postsHolder = document.querySelector('.home-posts');
+const postsHolder = document.querySelector('.home-container');
 
 // Last date before which posts are to be fetched, fetch trigger element, loading indicator
 let lastDate = new Date();
@@ -34,7 +34,8 @@ const fetchPostsFromFeed = async () => {
 await fetchPostsFromFeed();
 
 // Fetch posts from feed when scrolling to the trigger element
-window.addEventListener('scroll', async () => {
+const page = document.querySelector('.home-page');
+page.addEventListener('scroll', async () => {
   const { top } = triggerElement.getBoundingClientRect();
   if (!isLoading && top <= window.innerHeight) await fetchPostsFromFeed();
 });

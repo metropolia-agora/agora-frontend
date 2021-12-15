@@ -1,16 +1,34 @@
-/* ----- SETTINGS STYLES ----- */
+/* ----- SETTINGS PAGE STYLES ----- */
 
 .settings-page {
-  background-color: #ffffff;
   flex: 1;
   overflow-y: auto;
+  background-color: #ffffff;
 }
 
 .settings-container {
-  padding: 16px 32px;
+  padding: 0 16px;
   margin-bottom: 48px;
   background-color: #ffffff;
 }
+
+@media only screen and (min-width: 768px) {
+  .settings-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeeee;
+  }
+  .settings-container {
+    width: 500px;
+    margin: 32px;
+    padding: 0 32px;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+  }
+}
+
+/* ----- SAVED NOTIFICATION ----- */
 
 #saved {
   align-items: center;
@@ -20,7 +38,7 @@
   color: #ffffff;
   display: flex;
   justify-self: center;
-  margin: auto;
+  margin: 0 auto auto auto;
   font-size: 16px;
   position: sticky;
   top: 1%;
@@ -29,7 +47,7 @@
   visibility: hidden;
   height: 0;
   padding: 0;
-  transition: opacity 0.5s linear, padding 0s 0.5s, height 0s 0.5s, visibility 0s 0.5s;
+  transition: opacity 0.5s linear, padding 0s 0.5s, height 0s 0.5s, visibility 0s 0.5s, margin-top 0s 0.5s;
 }
 
 #saved.visible {
@@ -37,11 +55,6 @@
   opacity: 1;
   visibility: visible;
   padding: 6px 16px;
-  transition: opacity 0.5s linear, height 0s;
-}
-
-#deleteButton {
-  background-color: #d70000;
-  box-shadow: 0 0 5px 0 #d7000088;
-  font-weight: bold;
+  margin-top: 32px;
+  transition: opacity 0.5s linear, height 0s, margin-top 0s;
 }

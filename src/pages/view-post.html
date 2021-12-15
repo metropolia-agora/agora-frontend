@@ -22,19 +22,16 @@
     <h1>Post</h1>
   </header>
 
-  <main class="view-post-page new-comment-hidden">
-
-    <div class="view-post-content">
+  <main class="view-post-page">
+    <div class="view-post-container">
       <div id="post-holder"></div>
       <div id="comment-holder"></div>
+      <div id="new-comment-container" class="hidden">
+        <div id="new-comment-profile"></div>
+        <input id="new-comment-input" type="text" placeholder="Add a comment">
+        <button id="new-comment-button" class="disabled">post</button>
+      </div>
     </div>
-
-    <div id="new-comment-container">
-      <div id="new-comment-profile"></div>
-      <input id="new-comment-input" type="text" placeholder="Add a comment">
-      <button id="new-comment-button" class="disabled">post</button>
-    </div>
-
   </main>
 
 </body>
