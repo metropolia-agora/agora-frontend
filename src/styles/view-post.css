@@ -1,52 +1,49 @@
-/* ----- VIEW POST STYLES ----- */
+/* ----- VIEW POST PAGE STYLES ----- */
 
 .view-post-page {
-  display: flex;
-  flex-direction: column;
   flex: 1;
+  overflow-y: auto;
   background-color: #eeeeee;
-  overflow: hidden;
-  width: auto;
 }
 
-.post-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 12px;
-  background-color: #fefefe;
-  width: auto;
-
-}
-
-.view-post-content {
+.view-post-container {
   overflow-y: auto;
 }
 
-.view-post-content > #comment-holder {
-  margin-bottom: 64px;
-}
-
-.new-comment-hidden > .view-post-content > #comment-holder {
-  margin-bottom: 12px;
+@media only screen and (min-width: 768px) {
+  .view-post-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeeee;
+  }
+  .view-post-container {
+    width: 700px;
+    margin: 32px;
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+  }
+  .post-container {
+    margin: 0 !important;
+  }
+  .post-content > img {
+    max-height: 350px;
+  }
 }
 
 /* ----- NEW COMMENT ----- */
 
 #new-comment-container {
   width: 100%;
-  height: 54px;
-  position: fixed;
-  bottom: 0;
   display: flex;
   flex-direction: row;
+  position: sticky;
+  bottom: 0;
   align-items: center;
+  margin-top: 12px;
   padding: 10px 16px;
   background-color: #ffffff;
   border-top: 1px solid #eeeeee;
-}
-
-.new-comment-hidden > #new-comment-container {
-  display: none;
 }
 
 #new-comment-profile {

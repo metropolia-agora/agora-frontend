@@ -102,16 +102,8 @@ header > h1.highlighted {
   display: flex;
   flex-direction: column;
   margin-top: 12px;
-  background-color: #fefefe;
+  background-color: #ffffff;
   padding: 14px 16px;
-}
-
-@media only screen and (min-width: 768px) {
-  .post-container {
-    margin: 0 !important;
-    border-radius: 5px;
-    border: 1px solid #d3d3d3;
-  }
 }
 
 /* ----- POST - HEADER ----- */
