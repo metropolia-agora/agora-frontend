@@ -21,9 +21,9 @@ export const renderTopMenu = (user) => {
     // When menu is shown, prevent scrolling.
     hamburger.addEventListener('click', (event) => {
         event.preventDefault();
-        ul.classList.toggle('hide');
+        ul.classList.toggle('hidden');
 
-        if (!ul.classList.contains('hide')) {
+        if (!ul.classList.contains('hidden')) {
             document.body.style.overflowY = 'hidden';
         } else {
             document.body.style.overflowY = '';

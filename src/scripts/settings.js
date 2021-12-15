@@ -1,6 +1,7 @@
 import { api } from './common/api';
 import { authentication } from './common/authentication';
 import { renderNavigationBar } from './common/renderNavigationBar.js';
+import { renderTopMenu } from './common/renderTopMenu';
 
 // Authentication check
 const currentUser = await authentication.check();
@@ -9,6 +10,9 @@ const currentUser = await authentication.check();
 if (!currentUser) {
   window.location.assign('/');
 }
+
+// Render top menu (hamburger menu) content
+renderTopMenu(currentUser);
 
 // Render navigation bar
 const navbar = document.querySelector('#navigation-bar');
