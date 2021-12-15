@@ -167,6 +167,12 @@ header > h1.highlighted {
   padding-top: 16px;
 }
 
+@media only screen and (min-width: 768px) {
+  .post-content > img {
+    max-height: 350px;
+  }
+}
+
 /* ----- POST - ACTIONS ----- */
 
 .post-actions {

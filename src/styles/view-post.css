@@ -1,13 +1,21 @@
 /* ----- VIEW POST PAGE STYLES ----- */
 
 .view-post-page {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   overflow-y: auto;
   background-color: #eeeeee;
 }
 
 .view-post-container {
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#comment-holder {
+  flex: 1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -18,16 +26,20 @@
     background-color: #eeeeee;
   }
   .view-post-container {
+    flex: 0;
+    display: block;
     width: 700px;
-    margin: 32px;
     border-radius: 5px;
-    border: 1px solid #dddddd;
+    border: 1px solid #d3d3d3;
+    background-color: #ffffff;
+    margin: 32px;
   }
   .post-container {
-    margin: 0 !important;
+    margin: 8px;
   }
-  .post-content > img {
-    max-height: 350px;
+  #new-comment-container {
+    margin-top: 0 !important;
+    border-radius: 0 0 5px 5px;
   }
 }
 

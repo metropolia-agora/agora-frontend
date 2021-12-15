@@ -11,7 +11,7 @@ const navbar = document.querySelector('#mobile-navigation-bar');
 renderNavigationBar(navbar, currentUser);
 
 // Get post list holder component
-const postsHolder = document.querySelector('.home-posts');
+const postsHolder = document.querySelector('.home-container');
 
 // Last date before which posts are to be fetched, fetch trigger element, loading indicator
 let lastDate = new Date();
