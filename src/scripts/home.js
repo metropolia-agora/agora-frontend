@@ -1,9 +1,13 @@
 import { api } from './common/api';
 import { authentication } from './common/authentication';
 import { renderPost } from './common/renderPost';
+import { renderTopMenu } from "./common/renderTopMenu";
 
 // Authentication check (User or null)
 const user = await authentication.check();
+
+// Render top menu (hamburger menu) content depending on user type
+renderTopMenu(user);
 
 // Pick navigation bar elements
 const navHome = document.querySelector('#mobile-nav-home');
