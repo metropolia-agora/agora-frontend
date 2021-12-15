@@ -47,6 +47,75 @@ header > h1 {
   margin-right: auto;
 }
 
+header > nav button {
+  background: transparent;
+  border: none;
+}
+
+.fa-bars {
+  font-size: 5vw;
+  padding: 1%;
+  position: relative;
+}
+
+header > nav > ul {
+  align-items: center;
+  background-color: rgba(221, 221, 221, 0.95);
+  display: flex;
+  border-radius: 3px;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  list-style: none;
+  position: absolute;
+  right: 0;
+  width: 100vw;
+  z-index: 1;
+}
+
+.hide {
+  display: none;
+}
+
+header li {
+  cursor: pointer;
+  margin: 1vh 0;
+}
+
+header > nav > ul > li > a {
+  color: #017ef8;
+  display: block;
+  font-size: 5vw;
+  letter-spacing: 0.1em;
+  margin: 5% 0;
+  padding: 2% 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 50vw;
+}
+
+header a:active {
+  background-color: #656565;
+  border-bottom: #017ef8 solid 2px;
+  border-radius: 5px;
+}
+
+header a:hover, .fa-sign-out-alt:hover {
+  background-color: #cccccc;
+  border-bottom: #017ef8 solid 2px;
+  border-radius: 5px;
+}
+
+.fa-sign-out-alt {
+  color: #017ef8;
+  font-size: 6vw;
+  margin: 5% 0;
+  padding: 2% 0;
+  text-align: center;
+  width: 50vw;
+}
+
 /* ----- POST - CONTAINER ----- */
 
 .post-container {

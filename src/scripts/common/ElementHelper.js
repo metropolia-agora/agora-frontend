@@ -37,6 +37,11 @@ export class ElementHelper {
     return this;
   }
 
+  setHref(href) {
+    this.htmlElement.href = href;
+    return this;
+  }
+
   setParent(parent) {
     parent.htmlElement.appendChild(this.htmlElement);
     return this;

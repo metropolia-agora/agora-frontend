@@ -12,13 +12,23 @@
   <link href="styles/common.css" rel="stylesheet" type="text/css">
   <link href="styles/home.css" rel="stylesheet" type="text/css">
   <script src="https://unpkg.com/moment@2.29.1/min/moment.min.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6cd31f02df.js" crossorigin="anonymous"></script>
   <script src="scripts/common/checkOnboarding.js"></script>
   <script type="module" defer src="scripts/home.js"></script>
+  <script type="module" defer src="scripts/common/renderTopMenu.js"></script>
 </head>
 <body>
 
   <header>
     <h1>Recent posts</h1>
+    <nav id="top-menu">
+      <button id="menuButton" type="button"><i class="fas fa-bars"></i></button>
+      <ul class="menubar hide">
+        <li>
+          <a href="/">Home</a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
   <main class="home-page">
