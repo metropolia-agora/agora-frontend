@@ -60,6 +60,7 @@
   border-radius: 5px;
   margin-bottom: 32px;
   transition: background-color 0.1s;
+  cursor: pointer;
 }
 
 /* ----- PRIMARY OUTLINE BUTTON ----- */

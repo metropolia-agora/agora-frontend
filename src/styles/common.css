@@ -40,6 +40,7 @@ header > img {
   width: 40px;
   height: 40px;
   padding: 8px;
+  cursor: pointer;
 }
 
 header > h1 {
@@ -163,6 +164,7 @@ header li > a:hover, header li > a:active {
   margin: 8px;
   padding: 8px;
   border-radius: 50%;
+  cursor: pointer;
   transition: background-color 0.2s ease-out;
 }
 
@@ -203,6 +205,7 @@ header li > a:hover, header li > a:active {
   align-items: center;
   border-radius: 50%;
   border: 1px solid #eeeeee;
+  cursor: pointer;
 }
 
 .post-header-profile > img:not(.icon) {
@@ -217,6 +220,7 @@ header li > a:hover, header li > a:active {
   font-size: 14px;
   font-weight: 600;
   padding: 6px 12px;
+  cursor: pointer;
 }
 
 .post-header-timestamp {
@@ -231,6 +235,7 @@ header li > a:hover, header li > a:active {
   display: flex;
   flex-direction: column;
   margin: 14px 0;
+  cursor: pointer;
 }
 
 .post-content > p {
@@ -271,6 +276,7 @@ header li > a:hover, header li > a:active {
   border: 1px solid #eeeeee;
   border-radius: 16px;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .post-actions > .post-actions-item > p {
@@ -328,6 +334,7 @@ header li > a:hover, header li > a:active {
   background-color: #017ef8;
   box-shadow: 0 0 5px 0 #017ef869;
   transition: background-color 0.1s;
+  cursor: pointer;
 }
 
 .forms > button:active {
