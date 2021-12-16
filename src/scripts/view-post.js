@@ -3,9 +3,13 @@ import { authentication } from './common/authentication';
 import { renderComment } from './common/renderComment';
 import { renderPost } from './common/renderPost';
 import { renderProfilePicture } from './common/renderProfilePicture.js';
+import { renderTopMenu } from './common/renderTopMenu';
 
 // Authentication check
 const currentUser = await authentication.check();
+
+// Render top menu (hamburger menu) content depending on user type
+renderTopMenu(currentUser);
 
 // Load the data of the post that is being viewed
 const id = new URL(window.location).searchParams.get('id');

@@ -1,5 +1,12 @@
 import { api } from './common/api';
 import { authentication } from './common/authentication';
+import { renderTopMenu } from './common/renderTopMenu';
+
+// Authentication check
+const currentUser = await authentication.check();
+
+// Render top menu (hamburger menu) content depending on user type
+renderTopMenu(currentUser);
 
 // Pick html elements
 const form = document.getElementById('signup-form');
