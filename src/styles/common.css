@@ -7,6 +7,7 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -40,6 +41,7 @@ header > img {
   width: 40px;
   height: 40px;
   padding: 8px;
+  cursor: pointer;
 }
 
 header > h1 {
@@ -51,87 +53,92 @@ header > h1 {
   margin-right: auto;
 }
 
-header > nav button {
-  background: transparent;
-  border: none;
-}
-
-.fa-bars {
-  font-size: 5vw;
-  padding: 1%;
-}
-
-.fa-times {
-  font-size: 8vw;
-  margin-bottom: 10vw;
-  top: 0;
-}
-
-header > nav > ul {
-  align-items: center;
-  background-color: rgba(221, 221, 221, 0.95);
-  border-radius: 3px;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  left: 0;
-  list-style: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100vw;
-  z-index: 1;
-}
-
-header li {
-  cursor: pointer;
-  margin: 1vh 0;
-}
-
-header > nav > ul > li > a {
-  color: #017ef8;
-  display: block;
-  font-size: 5vw;
-  letter-spacing: 0.1em;
-  margin: 5% 0;
-  padding: 2% 0;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 50vw;
-}
-
-header a:active {
-  background-color: #656565;
-  border-bottom: #017ef8 solid 2px;
-  border-radius: 5px;
-}
-
-header a:hover, .fa-sign-out-alt:hover {
-  background-color: #cccccc;
-  border-bottom: #017ef8 solid 2px;
-  border-radius: 5px;
-}
-
-.fa-sign-out-alt {
-  color: #017ef8;
-  font-size: 6vw;
-  margin: 5% 0;
-  padding: 2% 0;
-  text-align: center;
-  width: 50vw;
-}
-
 header > h1.highlighted {
   color: #017ef8;
 }
 
 @media only screen and (min-width: 768px) {
   header {
-    padding: 4px 256px;
+    padding: 4px min(calc(50% - 350px), 256px);
     border-bottom: 1px solid #dddddd;
+  }
+}
+
+/* ----- HEADER MENU ----- */
+
+header > nav {
+  padding: 10px 8px;
+}
+
+header > nav button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.fa-bars {
+  padding: 1%;
+  color: #656565;
+  font-size: 20px;
+}
+
+#closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+.fa-times {
+  font-size: 24px;
+  color: #656565;
+}
+
+header > nav > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #eeeeeef0;
+}
+
+header li {
+  width: 200px;
+  padding: 16px 0;
+  margin: 4px 0;
+  border-radius: 5px;
+}
+
+header li > a {
+  color: #017ef8;
+  display: block;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+  width: fit-content;
+  margin: auto;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.1s;
+}
+
+header li > a:hover, header li > a:active {
+  border-bottom: 2px solid #017ef8;
+}
+
+@media only screen and (min-width: 768px) {
+  #closeButton {
+    top: 24px;
+    right: 64px;
   }
 }
 
@@ -156,6 +163,7 @@ header > h1.highlighted {
   margin: 8px;
   padding: 8px;
   border-radius: 50%;
+  cursor: pointer;
   transition: background-color 0.2s ease-out;
 }
 
@@ -196,6 +204,7 @@ header > h1.highlighted {
   align-items: center;
   border-radius: 50%;
   border: 1px solid #eeeeee;
+  cursor: pointer;
 }
 
 .post-header-profile > img:not(.icon) {
@@ -210,6 +219,7 @@ header > h1.highlighted {
   font-size: 14px;
   font-weight: 600;
   padding: 6px 12px;
+  cursor: pointer;
 }
 
 .post-header-timestamp {
@@ -224,6 +234,7 @@ header > h1.highlighted {
   display: flex;
   flex-direction: column;
   margin: 14px 0;
+  cursor: pointer;
 }
 
 .post-content > p {
@@ -264,6 +275,7 @@ header > h1.highlighted {
   border: 1px solid #eeeeee;
   border-radius: 16px;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .post-actions > .post-actions-item > p {
@@ -321,6 +333,7 @@ header > h1.highlighted {
   background-color: #017ef8;
   box-shadow: 0 0 5px 0 #017ef869;
   transition: background-color 0.1s;
+  cursor: pointer;
 }
 
 .forms > button:active {
@@ -347,5 +360,4 @@ header > h1.highlighted {
 .forms > p > a {
   color: #017ef8;
   text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
 }

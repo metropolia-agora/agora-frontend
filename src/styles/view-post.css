@@ -113,6 +113,7 @@
   align-items: center;
   border-radius: 50%;
   border: 1px solid #eeeeee;
+  cursor: pointer;
 }
 
 .comment-profile > img:not(.icon) {
@@ -138,6 +139,7 @@
 .comment-content > p:first-child {
   font-weight: 600;
   padding-right: 4px;
+  cursor: pointer;
 }
 
 /* ----- COMMENT ACTIONS ----- */

@@ -50,4 +50,9 @@
   background-color: #ffffff;
   border: 2px solid #656565;
   margin: 12px 32px;
+  cursor: pointer;
+}
+
+.not-found-container > button:active {
+  background-color: #eeeeee;
 }
