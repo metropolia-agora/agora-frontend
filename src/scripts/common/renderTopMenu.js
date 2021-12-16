@@ -1,6 +1,19 @@
 import { authentication } from './authentication';
 import { ElementHelper } from './ElementHelper';
 
+// Toggle hamburger menu on when menuButton clicked and prevent scrolling.
+const onPressMenu = () => (event) => {
+    event.preventDefault();
+    document.querySelector('#top-menu > ul').classList.remove('hidden');
+    document.body.style.overflowY = 'hidden';
+}
+
+// Toggle hamburger menu off when closeButton clicked and allow scrolling again.
+const onPressClose = () => {
+    document.querySelector('#top-menu > ul').classList.add('hidden');
+    document.body.style.overflowY = '';
+}
+
 // Logging out for eventListener
 const onPressLogout = () => (event) => {
     event.preventDefault();
@@ -8,26 +21,19 @@ const onPressLogout = () => (event) => {
 }
 
 export const renderTopMenu = (user) => {
-
     // Pick and create main top menu elements
     const navbar = document.getElementById('top-menu');
-    const ul = ElementHelper.create('ul').setClass('menubar hidden').setParent(navbar);
-    const liHome = ElementHelper.create('li').setParent(ul);
-    ElementHelper.create('a').setHref('/').setText('Home').setParent(liHome);
-
-    // Toggle hamburger menu on and off (hidden, not hidden) when button clicked.
-    // When menu is shown, prevent scrolling.
-    const onPressMenu = () => (event) => {
-        event.preventDefault();
-        ul.htmlElement.classList.remove('hidden');
-        document.body.style.overflowY = 'hidden';
-
-        // TODO: add close button to ul
-    }
-
-    // Create the last main top menu element (actual button and it's icon)
     const menuButton = ElementHelper.create('button').setId('menuButton').setOnClick(onPressMenu()).setParent(navbar);
+    const ul = ElementHelper.create('ul').setClass('menubar hidden').setParent(navbar);
+    const closeButton = ElementHelper.create('button').setId('closeButton').setOnClick(onPressClose()).setParent(ul);
+    const liHome = ElementHelper.create('li').setParent(ul);
+
+    // Add icon to buttons (menu & close)
     ElementHelper.create('i').setClass('fas fa-bars').setParent(menuButton);
+    ElementHelper.create('i').setClass('fas fa-times').setParent(closeButton);
+
+    // Add home button as common menu element to all users
+    ElementHelper.create('a').setHref('/').setText('Home').setParent(liHome);
 
     // If user if logged in, show buttons for profile, settings and logout.
     // If not, show buttons for sign in and sign up.

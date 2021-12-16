@@ -61,6 +61,12 @@ header > nav button {
   padding: 1%;
 }
 
+.fa-times {
+  font-size: 8vw;
+  margin-bottom: 10vw;
+  top: 0;
+}
+
 header > nav > ul {
   align-items: center;
   background-color: rgba(221, 221, 221, 0.95);
