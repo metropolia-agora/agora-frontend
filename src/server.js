@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import url from 'url';
-import helmet from 'helmet';
 
 // Set __dirname variable
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
@@ -15,9 +14,6 @@ const port = 3000;
 
 // Set up static middleware
 app.use(express.static(path.join(__dirname, ''), { extensions: ['html', 'js'] }));
-
-// Enable helmet
-app.use(helmet());
 
 // Enable CORS and pre-flight checks for all routes
 app.use(cors());
