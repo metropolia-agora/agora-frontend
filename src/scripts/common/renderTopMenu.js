@@ -13,6 +13,14 @@ const onPressClose = (event) => {
   document.querySelector('#top-menu > ul').classList.add('hidden');
 };
 
+// Close menu when pressing the overlay
+const onPressOverlay = (event) => {
+  if (event.target.tagName === 'UL') {
+    event.preventDefault();
+    document.querySelector('#top-menu > ul').classList.add('hidden');
+  }
+};
+
 // Logging out for eventListener
 const onPressLogout = (event) => {
   event.preventDefault();
@@ -23,7 +31,7 @@ export const renderTopMenu = (user) => {
   // Pick and create main top menu elements
   const navbar = document.getElementById('top-menu');
   const openButton = ElementHelper.create('button').setId('menuButton').setOnClick(onPressMenu).setParent(navbar);
-  const overlay = ElementHelper.create('ul').setClass('menubar hidden').setParent(navbar);
+  const overlay = ElementHelper.create('ul').setClass('menubar hidden').setOnClick(onPressOverlay).setParent(navbar);
   const closeButton = ElementHelper.create('button').setId('closeButton').setOnClick(onPressClose).setParent(overlay);
   const liHome = ElementHelper.create('li').setParent(overlay);
 
