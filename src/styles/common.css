@@ -7,6 +7,7 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -58,7 +59,7 @@ header > h1.highlighted {
 
 @media only screen and (min-width: 768px) {
   header {
-    padding: 4px 256px;
+    padding: 4px min(calc(50% - 350px), 256px);
     border-bottom: 1px solid #dddddd;
   }
 }
@@ -113,7 +114,6 @@ header li {
   padding: 16px 0;
   margin: 4px 0;
   border-radius: 5px;
-  -webkit-tap-highlight-color: transparent;
 }
 
 header li > a {
@@ -129,7 +129,6 @@ header li > a {
   margin: auto;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.1s;
-  -webkit-tap-highlight-color: transparent;
 }
 
 header li > a:hover, header li > a:active {
@@ -361,5 +360,4 @@ header li > a:hover, header li > a:active {
 .forms > p > a {
   color: #017ef8;
   text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
 }
