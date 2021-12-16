@@ -45,9 +45,11 @@ export const renderTopMenu = (user) => {
   // If user if logged in, show buttons for profile, settings and logout.
   // If not, show buttons for sign in and sign up.
   if (user) {
+    const liNewPost = ElementHelper.create('li').setParent(overlay);
     const liProfile = ElementHelper.create('li').setParent(overlay);
     const liSettings = ElementHelper.create('li').setParent(overlay);
     const liLogout = ElementHelper.create('li').setParent(overlay);
+    ElementHelper.create('a').setHref('/new').setText('New').setParent(liNewPost);
     ElementHelper.create('a').setHref(`/profile?id=${user.id}`).setText('Profile').setParent(liProfile);
     ElementHelper.create('a').setHref('/settings').setText('Settings').setParent(liSettings);
     ElementHelper.create('a').setOnClick(onPressLogout).setText('Sign out').setParent(liLogout);
