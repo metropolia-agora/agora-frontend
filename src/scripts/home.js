@@ -2,9 +2,13 @@ import { api } from './common/api';
 import { authentication } from './common/authentication';
 import { renderPost } from './common/renderPost';
 import { renderNavigationBar } from './common/renderNavigationBar.js';
+import { renderTopMenu } from './common/renderTopMenu';
 
 // Authentication check
 const currentUser = await authentication.check();
+
+// Render top menu (hamburger menu) content depending on user type
+renderTopMenu(currentUser);
 
 // Render navigation bar
 const navbar = document.querySelector('#mobile-navigation-bar');
