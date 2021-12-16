@@ -2,20 +2,21 @@ import { authentication } from './authentication';
 import { ElementHelper } from './ElementHelper';
 
 // Toggle hamburger menu on when menuButton clicked and prevent scrolling.
-const onPressMenu = () => (event) => {
+const onPressMenu = (event) => {
   event.preventDefault();
   document.querySelector('#top-menu > ul').classList.remove('hidden');
   document.body.style.overflowY = 'hidden';
 };
 
 // Toggle hamburger menu off when closeButton clicked and allow scrolling again.
-const onPressClose = () => {
+const onPressClose = (event) => {
+  event.preventDefault();
   document.querySelector('#top-menu > ul').classList.add('hidden');
   document.body.style.overflowY = '';
 };
 
 // Logging out for eventListener
-const onPressLogout = () => (event) => {
+const onPressLogout = (event) => {
   event.preventDefault();
   authentication.signout();
 };
@@ -23,9 +24,9 @@ const onPressLogout = () => (event) => {
 export const renderTopMenu = (user) => {
   // Pick and create main top menu elements
   const navbar = document.getElementById('top-menu');
-  const menuButton = ElementHelper.create('button').setId('menuButton').setOnClick(onPressMenu()).setParent(navbar);
+  const menuButton = ElementHelper.create('button').setId('menuButton').setOnClick(onPressMenu).setParent(navbar);
   const ul = ElementHelper.create('ul').setClass('menubar hidden').setParent(navbar);
-  const closeButton = ElementHelper.create('button').setId('closeButton').setOnClick(onPressClose()).setParent(ul);
+  const closeButton = ElementHelper.create('button').setId('closeButton').setOnClick(onPressClose).setParent(ul);
   const liHome = ElementHelper.create('li').setParent(ul);
 
   // Add icon to buttons (menu & close)
@@ -43,9 +44,7 @@ export const renderTopMenu = (user) => {
     const liLogout = ElementHelper.create('li').setParent(ul);
     ElementHelper.create('a').setHref(`/profile?id=${user.id}`).setText('Profile').setParent(liProfile);
     ElementHelper.create('a').setHref('/settings').setText('Settings').setParent(liSettings);
-    ElementHelper.create('button').setClass('button').setId('logout').setOnClick(onPressLogout()).setParent(liLogout);
-
-    const button = document.getElementById('logout');
+    const button = ElementHelper.create('button').setClass('button').setId('logout').setOnClick(onPressLogout).setParent(liLogout);
     ElementHelper.create('i').setClass('fas fa-sign-out-alt').setParent(button);
   } else {
     const liSignin = ElementHelper.create('li').setParent(ul);
