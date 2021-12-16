@@ -27,6 +27,14 @@ const onPressLogout = (event) => {
   authentication.signout();
 };
 
+// Handle closing the menu with the escape key
+const onKeyPress = (event) => {
+  if (event.code === 'Escape') {
+    event.preventDefault();
+    document.querySelector('#top-menu > ul').classList.add('hidden');
+  }
+};
+
 export const renderTopMenu = (user) => {
   // Pick and create main top menu elements
   const navbar = document.getElementById('top-menu');
@@ -34,6 +42,9 @@ export const renderTopMenu = (user) => {
   const overlay = ElementHelper.create('ul').setClass('menubar hidden').setOnClick(onPressOverlay).setParent(navbar);
   const closeButton = ElementHelper.create('button').setId('closeButton').setOnClick(onPressClose).setParent(overlay);
   const liHome = ElementHelper.create('li').setParent(overlay);
+
+  // Add keyup event listener
+  document.addEventListener('keyup', onKeyPress);
 
   // Add icon to buttons (menu & close)
   ElementHelper.create('i').setClass('fas fa-bars').setParent(openButton);

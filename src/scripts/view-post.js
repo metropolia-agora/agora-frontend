@@ -52,7 +52,7 @@ if (!postDataResponse.ok) {
 
     // Disable comment button when comment input is empty
     commentInput.addEventListener('keyup', async (event) => {
-      if (event.keyCode === 13) {
+      if (event.code === 'Enter') {
         await handleNewCommentSubmit();
       } else {
         commentButton.className = commentInput.value ? '' : 'disabled';
