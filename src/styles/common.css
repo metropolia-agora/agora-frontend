@@ -71,6 +71,7 @@ header > nav {
 header > nav button {
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 
 .fa-bars {
@@ -81,8 +82,9 @@ header > nav button {
 
 #closeButton {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 .fa-times {
@@ -102,7 +104,7 @@ header > nav > ul {
   bottom: 0;
   left: 0;
   z-index: 10;
-  background-color: #eeeeeef2;
+  background-color: #eeeeeef0;
 }
 
 header li {
@@ -132,6 +134,13 @@ header li > a {
 
 header li:hover > a, header li:active > a {
   border-bottom: 2px solid #017ef8;
+}
+
+@media only screen and (min-width: 768px) {
+  #closeButton {
+    top: 24px;
+    right: 64px;
+  }
 }
 
 /* ----- MOBILE NAVIGATION BAR ----- */

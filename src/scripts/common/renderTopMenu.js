@@ -5,14 +5,12 @@ import { ElementHelper } from './ElementHelper';
 const onPressMenu = (event) => {
   event.preventDefault();
   document.querySelector('#top-menu > ul').classList.remove('hidden');
-  document.body.style.overflowY = 'hidden';
 };
 
 // Toggle hamburger menu off when closeButton clicked and allow scrolling again.
 const onPressClose = (event) => {
   event.preventDefault();
   document.querySelector('#top-menu > ul').classList.add('hidden');
-  document.body.style.overflowY = '';
 };
 
 // Logging out for eventListener
