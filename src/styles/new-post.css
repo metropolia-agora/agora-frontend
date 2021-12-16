@@ -20,9 +20,9 @@
     background-color: #eeeeee;
   }
   .new-post-container {
-    width: 500px;
+    width: 700px;
     margin: 32px;
-    padding: 32px;
+    padding: 32px 132px;
     border-radius: 5px;
     border: 1px solid #dddddd;
   }

@@ -22,8 +22,9 @@
     background-color: #eeeeee;
   }
   .welcome-container {
-    width: 500px;
+    width: 700px;
     margin: 64px;
+    padding: 64px 132px;
     border-radius: 5px;
     border: 1px solid #dddddd;
   }
