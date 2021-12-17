@@ -149,6 +149,7 @@
   height: 32px;
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .comment-actions > img {

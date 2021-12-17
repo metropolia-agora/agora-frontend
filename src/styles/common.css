@@ -127,6 +127,7 @@ header li > a {
   padding-bottom: 2px;
   width: fit-content;
   margin: auto;
+  cursor: pointer;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.1s;
 }
